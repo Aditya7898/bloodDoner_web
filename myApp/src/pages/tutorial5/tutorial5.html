@@ -1,0 +1,92 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>HTML Forms</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h3>What are Html Forms?</h3>
+  The HTML &lt;form&gt; element defines a form that is used to collect user input:
+
+  <h4>The &lt;input&gt; Element</h4>
+  <p>The &lt;input&gt; element is the most important form element.</p>
+  The &lt;input&gt; element can be displayed in several ways, depending on the type attribute.
+  like:
+  <table class="w3-table-all">
+      <tbody><tr>
+      </tr>
+      <tr>
+       <td>&lt;input type="text"&gt;</td>
+      </tr>
+      <tr>
+       <td>&lt;input type="radio"&gt;</td>
+      </tr>
+      <tr>
+       <td>&lt;input type="submit"&gt;</td>
+      </tr>
+     </tbody>
+  </table>
+
+  <p>The HTML
+    <strong>&lt;form&gt;</strong> element defines a form that is used to collect user input.
+  </p>
+
+  <p>An HTML form contains form elements.</p>
+     <p>Form elements are different types of input elements, like text fields, checkboxes, radio buttons, submit buttons, and more. 
+  </p>
+
+  Example 1: Text input
+  <div class="w3-code">
+      <span style="color:brown"><span style="color:mediumblue">&lt;</span>form<span style="color:mediumblue">&gt;</span></span><br>
+      &nbsp;
+      First name:<span style="color:brown"><span style="color:mediumblue">&lt;</span>br<span style="color:mediumblue">&gt;</span></span><br>&nbsp; <span style="color:brown"><span style="color:mediumblue">&lt;</span>input<span style="color:red"> type<span style="color:mediumblue">="text"</span> name<span style="color:mediumblue">="firstname"</span></span><span style="color:mediumblue">&gt;</span></span><span style="color:brown"><span style="color:mediumblue">&lt;</span>br<span style="color:mediumblue">&gt;</span></span><br>
+      &nbsp;
+      Last name:<span style="color:brown"><span style="color:mediumblue">&lt;</span>br<span style="color:mediumblue">&gt;</span></span><br>&nbsp; <span style="color:brown"><span style="color:mediumblue">&lt;</span>input<span style="color:red"> type<span style="color:mediumblue">="text"</span> name<span style="color:mediumblue">="lastname"</span></span><span style="color:mediumblue">&gt;</span></span><br>
+      <span style="color:brown"><span style="color:mediumblue">&lt;</span>/form<span style="color:mediumblue">&gt;</span></span>
+  </div>
+  <br>
+  Output: <br><br>
+  First name: <br>
+  <input type="text"><br>
+  Last name:<br>
+  <input type="text"><br>
+<br><br>
+
+Example 2: Radio Button Input <br>
+
+<div class="w3-code notranslate htmlHigh">
+    <span style="color:brown"><span style="color:mediumblue">&lt;</span>form<span style="color:mediumblue">&gt;</span></span><br>&nbsp; <span style="color:brown"><span style="color:mediumblue">&lt;</span>input<span style="color:red"> type<span style="color:mediumblue">="radio"</span> name<span style="color:mediumblue">="gender"</span> value<span style="color:mediumblue">="male"</span> checked</span><span style="color:mediumblue">&gt;</span></span> Male<span style="color:brown"><span style="color:mediumblue">&lt;</span>br<span style="color:mediumblue">&gt;</span></span><br>
+    &nbsp;
+    <span style="color:brown"><span style="color:mediumblue">&lt;</span>input<span style="color:red"> type<span style="color:mediumblue">="radio"</span> name<span style="color:mediumblue">="gender"</span> value<span style="color:mediumblue">="female"</span></span><span style="color:mediumblue">&gt;</span></span> Female<span style="color:brown"><span style="color:mediumblue">&lt;</span>br<span style="color:mediumblue">&gt;</span></span><br>&nbsp;
+    <span style="color:brown"><span style="color:mediumblue">&lt;</span>input<span style="color:red"> type<span style="color:mediumblue">="radio"</span> name<span style="color:mediumblue">="gender"</span> value<span style="color:mediumblue">="other"</span></span><span style="color:mediumblue">&gt;</span></span> Other<br><span style="color:brown"><span style="color:mediumblue">&lt;</span>/form<span style="color:mediumblue">&gt;</span></span>
+</div>
+<br>
+Output: <br><br>
+<form>
+    <input type="radio" name="gender" value="male" checked> Male<br>
+    <input type="radio" name="gender" value="female"> Female<br>
+    <input type="radio" name="gender" value="other"> Other
+  </form>
+<br><br>
+
+Example 3: The Submit Button<br>
+
+<div class="htmlHigh">
+    <span style="color:brown"><span style="color:mediumblue">&lt;</span>form<span style="color:red"> action<span style="color:mediumblue">="/action_page.php"</span></span><span style="color:mediumblue">&gt;</span></span><br>&nbsp; First name:<span style="color:brown"><span style="color:mediumblue">&lt;</span>br<span style="color:mediumblue">&gt;</span></span><br>&nbsp; <span style="color:brown"><span style="color:mediumblue">&lt;</span>input<span style="color:red"> type<span style="color:mediumblue">="text"</span> 
+    name<span style="color:mediumblue">="firstname"</span> value<span style="color:mediumblue">="Mickey"</span></span><span style="color:mediumblue">&gt;</span></span><span style="color:brown"><span style="color:mediumblue">&lt;</span>br<span style="color:mediumblue">&gt;</span></span><br>&nbsp; Last name:<span style="color:brown"><span style="color:mediumblue">&lt;</span>br<span style="color:mediumblue">&gt;</span></span><br>&nbsp; <span style="color:brown"><span style="color:mediumblue">&lt;</span>input<span style="color:red"> 
+    type<span style="color:mediumblue">="text"</span> name<span style="color:mediumblue">="lastname"</span> value<span style="color:mediumblue">="Mouse"</span></span><span style="color:mediumblue">&gt;</span></span><span style="color:brown"><span style="color:mediumblue">&lt;</span>br<span style="color:mediumblue">&gt;</span></span><span style="color:brown"><span style="color:mediumblue">&lt;</span>br<span style="color:mediumblue">&gt;</span></span><br>&nbsp; <span style="color:brown"><span style="color:mediumblue">&lt;</span>input<span style="color:red"> type<span style="color:mediumblue">="submit"</span> value<span style="color:mediumblue">="Submit"</span></span><span style="color:mediumblue">&gt;</span></span><br><span style="color:brown"><span style="color:mediumblue">&lt;</span>/form<span style="color:mediumblue">&gt;</span></span>
+</div>
+<br>
+Output: <br><br>
+<form action="/action_page.php">
+  First name:<br>
+  <input type="text" name="firstname" value="Mickey"><br>
+  Last name:<br>
+  <input type="text" name="lastname" value="Mouse"><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+</ion-content>

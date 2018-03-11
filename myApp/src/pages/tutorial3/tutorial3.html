@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <h3>HTML Tags</h3>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  HTML tags are element names surrounded by angle brackets:
+
+  <p>&lt;tagname&gt;content goes here...&lt;/tagname&gt;</p>
+
+  <ul>
+    <li>HTML tags normally come
+      <b>in pairs</b> like &lt;p&gt; and &lt;/p&gt;</li>
+    <li>The first tag in a pair is the start tag, the second tag is the end tag.</li>
+    <li>The end tag is written like the start tag, but with a forward slash inserted before the tag name.</li>
+    <li>The start tag is also called the opening tag, and the end tag the closing tag.</li>
+  </ul>
+
+
+<!--  -->
+<ion-row>
+  <ion-col col-4 (click)="goToHeading()">
+    <p>Html Headings</p>
+  </ion-col>
+  <ion-col col-4 (click)="goToPara()">
+    <p>Html Paragraph</p>
+  </ion-col>
+  <ion-col col-4 (click)="goToFormatting()">
+    <p>Html Formatting</p>
+  </ion-col>
+</ion-row>
+<!--  -->
+<ion-row>
+    <ion-col col-4 (click)="goToImages()">
+      <p>Html Images</p>
+    </ion-col>
+    <ion-col col-4 (click)="goToTables()">
+      <p>Html Tables</p>
+    </ion-col>
+    <ion-col col-4 (click)="goToList()">
+      <p>Html <br>List</p>
+    </ion-col>
+  </ion-row>
+
+
+</ion-content>
