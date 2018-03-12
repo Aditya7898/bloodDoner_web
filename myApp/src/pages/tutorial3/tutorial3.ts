@@ -7,6 +7,8 @@ import { ListPage } from '../list/list';
 import { TablesPage } from '../tables/tables';
 import { ImagesPage } from '../images/images';
 
+@IonicPage()
+
 @Component({
   selector: 'page-tutorial3',
   templateUrl: 'tutorial3.html',

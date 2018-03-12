@@ -9,6 +9,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  */
 
 @IonicPage()
+
 @Component({
   selector: 'page-tutorial4',
   templateUrl: 'tutorial4.html',

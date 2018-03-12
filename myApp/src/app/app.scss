@@ -20,3 +20,31 @@
     top: 0;
     left: 0;
 }
+// .bar-button-md[icon-only] {
+//     color: #fff;
+//     position:absolute;
+// }
+.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default{
+    color:#fff;
+    
+}
+.toolbar-title-md{
+    color:#fff;
+}
+.scroll-content{
+    line-height: 23px;
+    background: beige
+}
+
+.toolbar-background {
+    background: #C62828;
+}
+ 
+.back-button.show-back-button {
+    display: inline-block;
+     color:#fff;
+}
+
+.activeHighLight{
+    background-color: #FFEBEE;
+}

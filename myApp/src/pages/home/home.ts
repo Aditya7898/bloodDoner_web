@@ -6,6 +6,8 @@ import { Tutorial3Page } from '../tutorial3/tutorial3';
 import { Tutorial4Page } from '../tutorial4/tutorial4';
 import { Tutorial5Page } from '../tutorial5/tutorial5';
 
+@IonicPage()
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
@@ -13,9 +15,10 @@ import { Tutorial5Page } from '../tutorial5/tutorial5';
 export class HomePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              private myModal:ModalController,menu: MenuController) {
-        menu.enable(true);
+              private myModal:ModalController,public menuCtrl: MenuController) {
+          menuCtrl.enable(true);
   }
+
 
   tutorial1(){
     this.navCtrl.push(Tutorial1Page);

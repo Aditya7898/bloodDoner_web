@@ -1,10 +1,5 @@
 page-home {
-.toolbar-background {
-        background: #C62828;
-}
-ion-content{
-    background:#f2f2f2 !important;
-}
+
  #card1{
     width:94%;
     height: 160px;
@@ -29,10 +24,9 @@ ion-content{
  .card-subtitle{
     text-align: center;
  }
-
- button.fab.fab-md{
-     background: green !important;
- }
-
+ .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default{
+    color:#fff;
+    margin-bottom:16px;
+}
 
 }
