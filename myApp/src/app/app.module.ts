@@ -12,7 +12,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database-deprecated';
 import { AngularFireModule } from 'angularfire2';
 import { FIREBASE_CREDENTIALS } from './firebase.credentials';
 
-import { Splash } from '../pages/splash/splash';
+// import { Splash } from '../pages/splash/splash';
 import { FormattingPageModule } from '../pages/formatting/formatting.module';
 import { Tutorial1PageModule } from '../pages/tutorial1/tutorial1.module';
 import { Tutorial2PageModule } from '../pages/tutorial2/tutorial2.module';
@@ -24,13 +24,14 @@ import { ImagesPageModule } from '../pages/images/images.module';
 import { ListPageModule } from '../pages/list/list.module';
 import { ParagraphPageModule } from '../pages/paragraph/paragraph.module';
 import { TablesPageModule } from '../pages/tables/tables.module';
+import { SplashPageModule } from '../pages/splash/splash.module';
 
 
 
 @NgModule({
   declarations: [
     MyApp,
-    Splash,
+    // Splash,
 
   ],
   imports: [
@@ -50,12 +51,13 @@ import { TablesPageModule } from '../pages/tables/tables.module';
     ListPageModule,
     ParagraphPageModule,
     TablesPageModule,
+    SplashPageModule
 
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    Splash,
+    // Splash,
   ],
   providers: [
     StatusBar,
