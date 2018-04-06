@@ -1,0 +1,30 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Test Start...</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding *ngIf="data$ | async as data">
+ hii
+<div class="question" *ngFor="let p of data.questions; let i =index" style="position: relative;margin-top: 55px;">
+  {{ p.questionText}}
+
+  <ion-list no-lines radio-group *ngFor="let q of p.options">
+    <ion-item>
+      <ion-label></ion-label>
+      <ion-radio></ion-radio>
+    </ion-item>
+  </ion-list>
+
+  <!-- <div class="options" *ngFor="let q of data.test[i].options">
+      <form action="">
+          <input type="radio" name="option"> {{ q.opt }}
+      </form>
+  </div> -->
+
+</div>
+
+</ion-content>

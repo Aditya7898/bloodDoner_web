@@ -1,0 +1,67 @@
+<!--
+  Generated template for the ImagesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title><p style="color:#fff;">images</p></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <h5>HTML Images Syntax</h5>
+  <p>In HTML, images are defined with the <strong>&lt;img&gt;</strong> tag.</p>
+  <p>The &lt;img&gt; tag is empty, it contains attributes only, and does not have a closing tag.</p>
+  <p>The src attribute specifies the URL (web address) of the image:</p>
+
+  Example:<br><br>
+  <div class="htmlHigh">
+      <span style="color:brown"><span style="color:mediumblue">&lt;</span>img<span style="color:red"> src<span style="color:mediumblue">="<i>url</i>"</span></span><span style="color:mediumblue">&gt;</span></span>
+  </div>
+  <br>
+
+<h5>The alt Attribute</h5>
+<p>The alt attribute provides an alternate text for an image, if the user for some reason cannot view it (because of slow connection, an error in the src attribute, or if the user uses a screen reader).</p>
+<p>The value of the alt attribute should describe the image.</p>
+Example:<br><br>
+<div class="htmlHigh">
+    <span style="color:brown"><span style="color:mediumblue">&lt;</span>img<span style="color:red"> src<span style="color:mediumblue">="img_chania.jpg"</span> alt<span style="color:mediumblue">="Flowers 
+      in Chania"</span></span><span style="color:mediumblue">&gt;</span></span>
+</div>
+Output: <br>
+<p><img src="img_chania.jpg" alt="Flowers in Chania"></p>
+
+<h5>Image Size - Width and Height</h5>
+<p>You can use the style attribute to specify the width and height of an image.</p>
+Example: <br><br>
+<div class="htmlHigh">
+    <span style="color:brown"><span style="color:mediumblue">&lt;</span>img<span style="color:red"> src<span style="color:mediumblue">="img_girl.jpg"</span> alt<span style="color:mediumblue">="Girl in a jacket"</span> style<span style="color:mediumblue">="width:500px;height:600px;"</span></span><span style="color:mediumblue">&gt;</span></span>
+</div>
+<br>
+Output:<br>
+<img src="img_girl.jpg" alt="Girl in a jacket" style="width:500px;height:600px;">
+
+<h5>Images in Another Folder</h5>
+<p>If not specified, the browser expects to find the image in the same folder as the web page.</p>
+<p>However, it is common to store images in a sub-folder. You must then include the folder name in the src attribute.</p>
+Examples:<br><br>
+<div class="w3-code notranslate htmlHigh">
+    <span style="color:brown"><span style="color:mediumblue">&lt;</span>img<span style="color:red"> src<span style="color:mediumblue">="/images/html5.gif"</span> 
+    alt<span style="color:mediumblue">="HTML5 Icon"</span> style<span style="color:mediumblue">="width:128px;height:128px;"</span></span><span style="color:mediumblue">&gt;</span></span>
+</div>
+<br>
+
+<h5>Background Image</h5>
+<P>To add a background image on an HTML element, use the CSS property background-image.</P>
+<div class="w3-code notranslate htmlHigh">
+    <span style="color:brown"><span style="color:mediumblue">&lt;</span>body<span style="color:red"> style<span style="color:mediumblue">="background-image:url('clouds.jpg')"</span></span><span style="color:mediumblue">&gt;</span></span><br><br><span style="color:brown"><span style="color:mediumblue">&lt;</span>h2<span style="color:mediumblue">&gt;</span></span>Background 
+    Image<span style="color:brown"><span style="color:mediumblue">&lt;</span>/h2<span style="color:mediumblue">&gt;</span></span><br><br><span style="color:brown"><span style="color:mediumblue">&lt;</span>/body<span style="color:mediumblue">&gt;</span></span>
+</div>
+
+</ion-content>

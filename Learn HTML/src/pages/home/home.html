@@ -1,0 +1,70 @@
+
+<ion-header>
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      <ion-title><p style="color:#fff;">Learn HTML</p></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page" *ngIf="newData$ | async as newData">
+
+
+  <ion-card id="card1">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQihFeNw5FADtoFyMumzNjOdazvpI8I8XgcjSc2SXUOsW69kTktug"/>
+  </ion-card>
+
+   <ion-card *ngFor="let i of newData.content">
+      <ion-card-content (click)="tutorial(i)">
+          <img src="assets/icon/favicon.png" style="width:26px;position:absolute;"/>
+          <p style="position:relative;left:35px;">{{ i.title}}</p>
+      </ion-card-content>
+    </ion-card>
+
+</ion-content>
+<!-- 
+    <p *ngFor="let i of newData.content">
+      {{ i.title }}
+    </p> -->
+
+  <!-- tutorial 1 -->
+  <!-- <ion-card>
+    <ion-card-content (click)="tutorial1()">
+        <img src="assets/icon/favicon.png" style="width:26px;position:absolute;"/>
+        <p  style="position:relative;left:35px;">Introduction</p>
+    </ion-card-content>
+  </ion-card> -->
+
+  <!-- tutorial 2 -->
+  <!-- <ion-card>
+    <ion-card-content (click)="tutorial2()">
+        <img src="assets/icon/favicon.png" style="width:26px;position:absolute;"/>
+        <p style="position:relative;left:35px;">Basics</p>
+    </ion-card-content>
+  </ion-card> -->
+
+  <!-- tutorial 3 -->
+  <!-- <ion-card>
+    <ion-card-content (click)="tutorial3()">
+        <img src="assets/icon/favicon.png" style="width:26px;position:absolute;"/>
+        <p style="position:relative;left:35px;">Tags</p>
+    </ion-card-content>
+  </ion-card> -->
+
+  <!--  tutorial 4 -->
+  <!-- <ion-card>
+    <ion-card-content (click)="tutorial4()">
+        <img src="assets/icon/favicon.png" style="width:26px;position:absolute;"/>
+        <p style="position:relative;left:35px;">Attributes</p>
+    </ion-card-content>
+  </ion-card>  -->
+
+  <!-- tutorial 5 -->
+  <!-- <ion-card>
+    <ion-card-content (click)="tutorial5()">
+        <img src="assets/icon/favicon.png" style="width:26px;position:absolute;"/>
+        <p style="position:relative;left:35px;">Forms</p>
+    </ion-card-content>
+  </ion-card> -->
+

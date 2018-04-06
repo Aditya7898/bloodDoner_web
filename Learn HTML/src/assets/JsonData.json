@@ -1,0 +1,86 @@
+{
+
+"name" : "Aditya",
+
+ "content":[
+	{
+		"title": "Introduction"
+	},
+	{
+		"title": "Basics"
+	},
+	{
+		"title": "tags"
+	},
+	{
+		"title": "Attribute"
+	},
+	{
+		"title": "forms"
+	}
+ ],
+
+    "questions": [
+ 
+ {
+	 "flashCardFront": "ShowAnswer",
+	 "flashCardBack": "Hyper Text Markup Language",
+	 "flashCardFlipped": false,
+	 "questionText": "HTML stands for?",
+	 "answers": [
+		 {"answer": "Hyper Text Markup Language", "correct": true, "selected": false},
+		 {"answer": "High Text Markup Language", "correct": false, "selected": false},
+		 {"answer": "Hyper Tabular Markup Language", "correct": false, "selected": false},
+		 {"answer": "none", "correct": false, "selected": false}
+	 ]
+ },
+ {
+	 "flashCardFront": "ShowAnswer",
+	 "flashCardBack": "<p>",
+	 "flashCardFlipped": false,
+	 "questionText": "which of the following tag is used to mark a begining of paragraph ?",
+	 "answers": [
+		 {"answer": "<td>", "correct": false, "selected": false},
+		 {"answer": "<paragraph>", "correct": false, "selected": false},
+		 {"answer": "<p>", "correct": true, "selected": false},
+		 {"answer": "<para>", "correct": false, "selected": false}
+	 ]
+ },
+ {
+	 "flashCardFront": "ShowAnswer",
+	 "flashCardBack": "<DL>",
+	 "flashCardFlipped": false,
+	 "questionText": "From which tag descriptive list starts ?",
+	 "answers": [
+		 {"answer": "<DS>", "correct": false, "selected": false},
+		 {"answer": "<LL>", "correct": false, "selected": false},
+		 {"answer": "<DL>", "correct": true, "selected": false},
+		 {"answer": "<DD>", "correct": false, "selected": false}
+	 ]
+ },
+ {
+	 "flashCardFront": "ShowAnswer",
+	 "flashCardBack": "Both (a)&(c)",
+	 "flashCardFlipped": false,
+	 "questionText": "The attribute of <form> tag ?",
+	 "answers": [
+		 {"answer": "Method", "correct": false, "selected": false},
+		 {"answer": "Both (a)&(c)", "correct": true, "selected": false},
+		 {"answer": "Action", "correct": false, "selected": false},
+		 {"answer": "none", "correct": false, "selected": false}
+	 ]
+ },
+ {
+	 "flashCardFront": "ShowAnswer",
+	 "flashCardBack": "<h1>",
+	 "flashCardFlipped": false,
+	 "questionText": "Correct HTML tag for the largest heading is ?",
+	 "answers": [
+		 {"answer": "<heading>", "correct": false, "selected": false},
+		 {"answer": "<h3>", "correct": false, "selected": false},
+		 {"answer": "<h1>", "correct": true, "selected": false},
+		 {"answer": "<h5>", "correct": false, "selected": false}
+	 ]
+ }
+]
+}

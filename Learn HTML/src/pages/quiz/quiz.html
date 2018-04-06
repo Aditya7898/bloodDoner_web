@@ -1,0 +1,80 @@
+<ion-header>
+    <ion-navbar hideBackButton>
+        <ion-title style="text-align: center;"> Your Score : {{score}}</ion-title>
+    </ion-navbar>
+</ion-header>
+  
+<ion-content>
+ 
+    <ion-slides #slides>
+ 
+        <ion-slide class="start-slide">
+                <button color="danger" ion-button round outline (click)="onTestStart();nextSlide(); ">
+                    Start<ion-icon name="arrow-forward" role="img" class="icon icon-md ion-md-arrow-forward" aria-label="arrow forward"></ion-icon>
+                </button>
+                <button (click)="quit()" ion-button  color="danger" round outline>Quit <ion-icon md-log-out name="log-out" style="margin:7px"></ion-icon></button>
+            <!-- <button ion-button color="primary" (click)="nextSlide(); checkInternetConnection();">Start!</button> -->
+        </ion-slide>
+
+
+        <ion-slide *ngFor="let question of questions; let i = index;">
+ 
+            <h3>Question {{i+1}}</h3>
+ 
+            <!-- <flash-card [isFlipped]="question.flashCardFlipped">
+                <div class="flash-card-front"  [innerHTML]="question.flashCardFront"></div>
+                <div class="flash-card-back" [innerHTML]="question.flashCardBack"></div>
+            </flash-card> -->
+
+
+            <h4>{{question.questionText}}</h4>
+ 
+            <ion-list radio-group>
+ 
+                <ion-item *ngFor="let answer of question.answers; let i = index;">
+ 
+                    <ion-label>{{i+1}}. {{answer.answer}}</ion-label>
+                    <ion-radio (click)="selectAnswer(answer, question); presentToast(question.flashCardBack);"  [checked]="answer.selected" [disabled]="hasAnswered"></ion-radio>
+ 
+                </ion-item>
+ 
+            </ion-list>
+
+
+            <ion-grid style="height:100px;">
+                    <ion-row *ngIf="clicked == true">
+                        <ion-col></ion-col>
+                        <ion-col *ngIf="isTrue"><ion-icon md-checkmark-circle name="checkmark-circle" style="font-size: 2.2em;color: green;"></ion-icon></ion-col>
+                        <ion-col *ngIf="isTrue == false"><ion-icon md-close-circle name="close-circle" style="font-size: 2.2em;color: red;"></ion-icon></ion-col>
+                        <ion-col></ion-col>  
+                    </ion-row>
+                </ion-grid>
+        </ion-slide>
+
+
+        <ion-slide>
+            <!-- <h1 *ngIf="score>=30"><ion-icon md-trophy name="trophy" [style.color]="score>=40 ? '#ffa700' : 'silver'"></ion-icon></h1> -->
+            <div class="final_score" [ngSwitch]="score" >
+                <h2 *ngSwitchCase="30"><ion-icon md-trophy name="trophy" style="color: brown"></ion-icon></h2>
+                <h2 *ngSwitchCase="40"><ion-icon md-trophy name="trophy" style="color: silver"></ion-icon></h2>
+                <h2 *ngSwitchCase="50"><ion-icon md-trophy name="trophy" style="color: #ffa700"></ion-icon></h2>
+                <h2>Final Score: {{score}}</h2>
+                <h3> Test End</h3>
+            </div>
+
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <button (click)="restartQuiz()" ion-button color="danger" round outline>Restart <ion-icon md-refresh-circle name="refresh-circle" style="margin:7px"></ion-icon></button>
+                    </ion-col>
+                    <ion-col>
+                        <button (click)="quit()" ion-button  color="danger" round outline>Quit <ion-icon md-log-out name="log-out" style="margin:7px"></ion-icon></button>
+                    </ion-col>  
+                </ion-row>
+            </ion-grid>
+            
+        </ion-slide>
+ 
+    </ion-slides>
+ 
+</ion-content>

@@ -1,0 +1,140 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title><p style="color:#fff;">Html List</p></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <h4>Unordered HTML List</h4>
+    <p>An unordered list starts with the &lt;ul&gt; tag. Each list item starts with the &lt;li&gt; tag.</p>
+    <p>The list items will be marked with bullets (small black circles) by default.</p>
+
+Example:<br><br>
+<div class="w3-code notranslate htmlHigh">
+    <span style="color:brown"><span style="color:mediumblue">&lt;</span>ul<span style="color:mediumblue">&gt;</span></span><br>
+    &nbsp;
+    <span style="color:brown"><span style="color:mediumblue">&lt;</span>li<span style="color:mediumblue">&gt;</span></span>Coffee<span style="color:brown"><span style="color:mediumblue">&lt;</span>/li<span style="color:mediumblue">&gt;</span></span><br>&nbsp; <span style="color:brown"><span style="color:mediumblue">&lt;</span>li<span style="color:mediumblue">&gt;</span></span>Tea<span style="color:brown"><span style="color:mediumblue">&lt;</span>/li<span style="color:mediumblue">&gt;</span></span><br>
+    &nbsp;
+    <span style="color:brown"><span style="color:mediumblue">&lt;</span>li<span style="color:mediumblue">&gt;</span></span>Milk<span style="color:brown"><span style="color:mediumblue">&lt;</span>/li<span style="color:mediumblue">&gt;</span></span><br>
+    <span style="color:brown"><span style="color:mediumblue">&lt;</span>/ul<span style="color:mediumblue">&gt;</span></span>
+</div><br>
+Output:<br>
+<ul>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>
+
+
+<h4>Unordered HTML List - Choose List Item Marker</h4>
+<p>The CSS list-style-type property is used to define the style of the list item marker</p>
+<ul>
+  <li>disc	- Sets the list item marker to a bullet (default)</li>
+  <li>circle -Sets the list item marker to a circle</li>
+  <li>square - Sets the list item marker to a square</li>
+  <li>none - The list items will not be marked</li>
+</ul><br>
+Example: <br>
+<div class="w3-code notranslate htmlHigh">
+    <span style="color:brown"><span style="color:mediumblue">&lt;</span>ul<span style="color:red"> style<span style="color:mediumblue">="list-style-type:disc"</span></span><span style="color:mediumblue">&gt;</span></span><br>&nbsp; <span style="color:brown"><span style="color:mediumblue">&lt;</span>li<span style="color:mediumblue">&gt;</span></span>Coffee<span style="color:brown"><span style="color:mediumblue">&lt;</span>/li<span style="color:mediumblue">&gt;</span></span><br>
+    &nbsp; <span style="color:brown"><span style="color:mediumblue">&lt;</span>li<span style="color:mediumblue">&gt;</span></span>Tea<span style="color:brown"><span style="color:mediumblue">&lt;</span>/li<span style="color:mediumblue">&gt;</span></span><br>&nbsp; <span style="color:brown"><span style="color:mediumblue">&lt;</span>li<span style="color:mediumblue">&gt;</span></span>Milk<span style="color:brown"><span style="color:mediumblue">&lt;</span>/li<span style="color:mediumblue">&gt;</span></span><br><span style="color:brown"><span style="color:mediumblue">&lt;</span>/ul<span style="color:mediumblue">&gt;</span></span>
+</div><br>
+Output: <br>
+<ul style="list-style-type:disc">
+    <li>Coffee</li>
+    <li>Tea</li>
+    <li>Milk</li>
+  </ul><br><br>
+
+
+
+
+
+
+<h4>Ordered HTML List</h4>
+<p>An ordered list starts with the &lt;ol&gt; tag. Each list item starts with the &lt;li&gt; tag.</p>
+<p>The list items will be marked with numbers by default.</p>
+<br>
+Example: <br>
+<div class="w3-code notranslate htmlHigh">
+    <span style="color:brown"><span style="color:mediumblue">&lt;</span>ol<span style="color:mediumblue">&gt;</span></span><br>
+    &nbsp;
+    <span style="color:brown"><span style="color:mediumblue">&lt;</span>li<span style="color:mediumblue">&gt;</span></span>Coffee<span style="color:brown"><span style="color:mediumblue">&lt;</span>/li<span style="color:mediumblue">&gt;</span></span><br>&nbsp; <span style="color:brown"><span style="color:mediumblue">&lt;</span>li<span style="color:mediumblue">&gt;</span></span>Tea<span style="color:brown"><span style="color:mediumblue">&lt;</span>/li<span style="color:mediumblue">&gt;</span></span><br>
+    &nbsp;
+    <span style="color:brown"><span style="color:mediumblue">&lt;</span>li<span style="color:mediumblue">&gt;</span></span>Milk<span style="color:brown"><span style="color:mediumblue">&lt;</span>/li<span style="color:mediumblue">&gt;</span></span><br>
+    <span style="color:brown"><span style="color:mediumblue">&lt;</span>/ol<span style="color:mediumblue">&gt;</span></span>
+</div><br>
+
+Output: <br>
+<ol>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ol>
+
+<h5>Ordered HTML List - The Type Attribute</h5>
+<p>The <strong>type</strong> attribute of the &lt;ol&gt; tag, defines the type of the 
+  list item marker.
+</p>
+  <ul>
+    <li>type="1"	The list items will be numbered with numbers (default)</li>
+    <li>type="A"	The list items will be numbered with uppercase letters</li>
+    <li>type="a"	The list items will be numbered with lowercase letters</li>
+    <li>type="I"	The list items will be numbered with uppercase roman numbers</li>
+    <li>type="i"	The list items will be numbered with lowercase roman numbers</li>
+  </ul>
+
+
+  Example: <br>
+  <div class="w3-code notranslate htmlHigh">
+      <span style="color:brown"><span style="color:mediumblue">&lt;</span>ol<span style="color:red"> type<span style="color:mediumblue">="I"</span></span><span style="color:mediumblue">&gt;</span></span><br>&nbsp; <span style="color:brown"><span style="color:mediumblue">&lt;</span>li<span style="color:mediumblue">&gt;</span></span>Coffee<span style="color:brown"><span style="color:mediumblue">&lt;</span>/li<span style="color:mediumblue">&gt;</span></span><br>
+      &nbsp; <span style="color:brown"><span style="color:mediumblue">&lt;</span>li<span style="color:mediumblue">&gt;</span></span>Tea<span style="color:brown"><span style="color:mediumblue">&lt;</span>/li<span style="color:mediumblue">&gt;</span></span><br>&nbsp; <span style="color:brown"><span style="color:mediumblue">&lt;</span>li<span style="color:mediumblue">&gt;</span></span>Milk<span style="color:brown"><span style="color:mediumblue">&lt;</span>/li<span style="color:mediumblue">&gt;</span></span><br><span style="color:brown"><span style="color:mediumblue">&lt;</span>/ol<span style="color:mediumblue">&gt;</span></span>
+  </div><br>
+
+  Output: <br>
+  <ol type="I">
+    <li>Coffee</li>
+    <li>Tea</li>
+    <li>Milk</li>
+  </ol>
+
+
+
+  <h4>HTML Description Lists</h4>
+  <p>A description list is a list of terms, with a description of each term.</p>
+  <p>The <strong>&lt;dl&gt;</strong> tag defines the description list, the <strong>&lt;dt&gt;</strong> tag defines the term (name), and the <strong>&lt;dd&gt;</strong> 
+    tag describes each term:&nbsp;
+  </p>
+  Example: <br>
+  <div class="w3-example">
+      <h3>Example</h3>
+      <div class="w3-code notranslate htmlHigh">
+      <span style="color:brown"><span style="color:mediumblue">&lt;</span>dl<span style="color:mediumblue">&gt;</span></span><br>
+      &nbsp;
+      <span style="color:brown"><span style="color:mediumblue">&lt;</span>dt<span style="color:mediumblue">&gt;</span></span>Coffee<span style="color:brown"><span style="color:mediumblue">&lt;</span>/dt<span style="color:mediumblue">&gt;</span></span><br>
+      &nbsp;
+      <span style="color:brown"><span style="color:mediumblue">&lt;</span>dd<span style="color:mediumblue">&gt;</span></span>- black hot drink<span style="color:brown"><span style="color:mediumblue">&lt;</span>/dd<span style="color:mediumblue">&gt;</span></span><br>
+      &nbsp;
+      <span style="color:brown"><span style="color:mediumblue">&lt;</span>dt<span style="color:mediumblue">&gt;</span></span>Milk<span style="color:brown"><span style="color:mediumblue">&lt;</span>/dt<span style="color:mediumblue">&gt;</span></span><br>
+      &nbsp;
+      <span style="color:brown"><span style="color:mediumblue">&lt;</span>dd<span style="color:mediumblue">&gt;</span></span>- white cold drink<span style="color:brown"><span style="color:mediumblue">&lt;</span>/dd<span style="color:mediumblue">&gt;</span></span><br>
+      <span style="color:brown"><span style="color:mediumblue">&lt;</span>/dl<span style="color:mediumblue">&gt;</span></span>
+       </div>
+      <a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=tryhtml_lists_description" target="_blank">Try it Yourself »</a>
+      </div>
+<br>
+Output:<br>
+
+<dl>
+    <dt>Coffee</dt>
+    <dd>- black hot drink</dd>
+    <dt>Milk</dt>
+    <dd>- white cold drink</dd>
+  </dl>
+
+
+</ion-content>

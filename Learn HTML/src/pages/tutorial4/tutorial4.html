@@ -1,0 +1,120 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      <h3><p style="color:#fff;">HTML Attributes</p></h3>
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <h4><u>What are HTML Attributes..?</u></h4>
+    <p>All HTML elements can have attributes.</p>
+  <ul>
+    <li>Attributes provide additional information about an element.</li>
+    <li>Attributes are always specified in the start tag.</li>
+    <li>Attributes usually come in name/value pairs like: name="value".</li>
+  </ul>
+
+  <h6>1. The href Attribute</h6>
+  <p>HTML links are defined with the &lt;a&gt; tag. The link address is specified in the href attribute.</p>
+  <p>Example: </p>
+  <div class="htmlExmp" style="font-size:13px;">
+    <span style="color:brown">
+      <span style="color:mediumblue">&lt;</span>a
+      <span style="color:red"> href
+        <span style="color:mediumblue">="https://www.fb.com"</span>
+      </span>
+      <span style="color:mediumblue">&gt;</span>
+    </span>This is a link
+    <span style="color:brown">
+      <span style="color:mediumblue">&lt;</span>/a
+      <span style="color:mediumblue">&gt;</span>
+    </span>
+  </div>
+
+  <h6>2. The src Attribute</h6>
+  <p>HTML images are defined with the &lt;img&gt; tag. The filename of the image source is specified in the src attribute:</p>
+  <p>Example: </p>
+  <div class="w3-code notranslate htmlHigh">
+    <span style="color:brown">
+      <span style="color:mediumblue">&lt;</span>img
+      <span style="color:red"> src
+        <span style="color:mediumblue">="img_girl.jpg"</span>
+      </span>
+      <span style="color:mediumblue">&gt;</span>
+    </span>
+  </div>
+
+  <h6>3. The width and height Attributes </h6>
+  <p>Images in HTML have a set of size attributes, which specifies the width and height of the image.</p>
+  <p>Example: </p>
+  <div class="htmlHigh">
+    <span style="color:brown">
+      <span style="color:mediumblue">&lt;</span>img
+      <span style="color:red"> src
+        <span style="color:mediumblue">="i_girl.jpg"</span> width
+        <span style="color:mediumblue">="500"</span> height
+        <span style="color:mediumblue">="600"</span>
+      </span>
+      <span style="color:mediumblue">&gt;</span>
+    </span>
+  </div>
+
+  <h6>4. The alt Attribute</h6>
+  <p> The alt attribute specifies an alternative text to be used, when an image cannot be displayed.</p>
+  <p> The value of the attribute can be read by screen readers. This way, someone "listening" to the webpage, e.g. a blind person,
+    can "hear" the element</p>
+  <div class="htmlHigh">
+    <span style="color:brown">
+      <span style="color:mediumblue">&lt;</span>img
+      <span style="color:red"> src
+        <span style="color:mediumblue">="i_girl.jpg"</span> alt
+        <span style="color:mediumblue">="Girl with a jacket"</span>
+      </span>
+      <span style="color:mediumblue">&gt;</span>
+    </span>
+  </div>
+
+
+  <h6>5. The style Attribute</h6>
+  <p> The style attribute is used to specify the styling of an element, like color, font, size etc.</p>
+  <div class="w3-code notranslate htmlHigh">
+    <span style="color:brown">
+      <span style="color:mediumblue">&lt;</span>p
+      <span style="color:red"> style
+        <span style="color:mediumblue">="color:red"</span>
+      </span>
+      <span style="color:mediumblue">&gt;</span>
+    </span>I am a paragraph
+    <span style="color:brown">
+      <span style="color:mediumblue">&lt;</span>/p
+      <span style="color:mediumblue">&gt;</span>
+    </span>
+  </div>
+
+  <h6>6. The title Attribute</h6>
+  <p>Here, a
+    <strong>title</strong> attribute is added to the
+    <strong>&lt;p&gt;</strong>
+    element. The value of the title attribute will be displayed as a tooltip when you mouse over the paragraph:</p>
+  <div class="w3-code notranslate htmlHigh">
+    <span style="color:brown">
+      <span style="color:mediumblue">&lt;</span>p
+      <span style="color:red"> title
+        <span style="color:mediumblue">="I'm a tooltip"</span>
+      </span>
+      <span style="color:mediumblue">&gt;</span>
+    </span>
+    <br>This is a paragraph.
+    <br>
+    <span style="color:brown">
+      <span style="color:mediumblue">&lt;</span>/p
+      <span style="color:mediumblue">&gt;</span>
+    </span>
+  </div>
+
+  <h6><b><i>Note: Double quotes around attribute values are the most common in HTML, but single quotes can also be used.</i></b></h6>
+</ion-content>
