@@ -1,0 +1,49 @@
+<mat-grid-list cols="3" rowHeight="650px">
+  <mat-grid-tile></mat-grid-tile>
+
+  <mat-grid-tile>
+      <div class="example-container">
+        <h2 style="text-align:center">Sign Up</h2>
+          <mat-form-field>
+            <input matInput placeholder="Full Name">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Email">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Contact/ Mobile">
+          </mat-form-field>
+    
+          <mat-form-field>
+              <input matInput placeholder="Password">
+          </mat-form-field>
+
+          <!-- select Input city -->
+          <mat-form-field>
+            <mat-select placeholder="Select City">
+              <mat-option *ngFor="let city of cities" [value]="city.value">
+                {{ city.value }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    
+         <!-- select Input BloodGroups -->
+         <mat-form-field>
+            <mat-select placeholder="Blood Group">
+              <mat-option *ngFor="let group of bloodGroups" [value]="group.value">
+                {{ group.value }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <textarea matInput placeholder="Address"></textarea>
+          </mat-form-field>
+    
+          <button mat-raised-button color="primary">Register</button>
+        </div> 
+  </mat-grid-tile>
+
+  <mat-grid-tile></mat-grid-tile>
+</mat-grid-list>
+
+

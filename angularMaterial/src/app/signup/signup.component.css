@@ -1,0 +1,21 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+
+  /* mat-grid-tile{
+      background: rgb(6, 67, 107);
+  } */
+
+  .mat-form-field{
+    width:400px !important;
+}
+@media(max-width:768px){
+    .mat-form-field{
+        width:100% !important;
+    }
+}
