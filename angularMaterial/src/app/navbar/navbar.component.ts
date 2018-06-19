@@ -4,13 +4,12 @@ import { Observable } from 'rxjs';
 import { UserDataService } from '../user-data.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 
-
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css']
 })
-export class HomeComponent implements OnInit {
+export class NavbarComponent implements OnInit {
 
   isHandset$: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.Handset);
 
@@ -23,9 +22,11 @@ export class HomeComponent implements OnInit {
        this.afAuth.auth.signOut();
   }
 
-   ngOnInit() {
-   }
+  ngOnInit() {
   }
+
+
+}
 
 
 

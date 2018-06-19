@@ -1,0 +1,116 @@
+<!--  -->
+<div class="container-fluid" fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="row" fxLayout.gt="row" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+
+  <div class="item" fxFlex="45%">
+   
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title style="margin-left: -48px"> <h2>Patient Details</h2></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="patient-container">
+          <form [formGroup]="RequestForm" (ngSubmit)="onSubmit()">
+            <mat-form-field>
+              <input matInput placeholder="Patient Name" formControlName="Pname" class="form-control">
+            </mat-form-field>
+            <div><span *ngIf="!RequestForm.get('Pname').valid && RequestForm.get('Pname').touched">
+                      Please enter full name.</span></div> 
+
+            <!-- patient blood group  -->
+            <mat-form-field>
+              <mat-select placeholder="Blood Group" formControlName="Pbloodgroup">
+                <mat-option *ngFor="let group of bloodGroups" [value]="group.value" class="form-control">
+                  {{ group.value }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div><span *ngIf="!RequestForm.get('Pbloodgroup').valid && RequestForm.get('Pbloodgroup').touched">
+                                                                            Please select blood group.</span></div> 
+            <!-- select Input city -->
+            <mat-form-field>
+              <mat-select placeholder="Select City" formControlName="Pcity">
+                <mat-option *ngFor="let city of cities" [value]="city.value" class="form-control">
+                  {{ city.value }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div><span *ngIf="!RequestForm.get('Pcity').valid && RequestForm.get('Pcity').touched">
+                          Please select city.</span></div> 
+
+            <!-- for address  -->
+            <mat-form-field>
+              <textarea matInput formControlName="Address" placeholder="Hospital And Address"></textarea>
+            </mat-form-field>
+            <div><span *ngIf="!RequestForm.get('Address').valid && RequestForm.get('Address').touched">
+                Please enter Name and Addrees of Hospital.</span></div> 
+
+            <!-- for patient'S Doctor -->
+            <mat-form-field>
+              <input matInput placeholder="Doctor" formControlName="Pdoctor" class="form-control">
+            </mat-form-field>
+            <div><span *ngIf="!RequestForm.get('Pdoctor').valid && RequestForm.get('Pdoctor').touched">
+                Please enter Doctor's Name.</span></div> 
+            
+
+                <mat-form-field>
+                  <input matInput placeholder="Contact Name" formControlName="Cname" class="form-control">
+                </mat-form-field>
+                <div><span *ngIf="!RequestForm.get('Cname').valid && RequestForm.get('Cname').touched">
+                          Please enter full name.</span></div> 
+    
+    
+                <mat-form-field>
+                            <input 
+                                matInput 
+                                placeholder="Contact Email" 
+                                formControlName="Cemail"
+                                class="form-control">
+                          </mat-form-field>
+                <div><span *ngIf="!RequestForm.get('Cemail').valid && RequestForm.get('Cemail').touched">
+                              Please enter valid email.</span></div> 
+    
+                <mat-form-field>
+                            <input 
+                               type="number"
+                               matInput 
+                               placeholder="Contact/ Mobile" 
+                               formControlName="Ccontact"
+                               class="form-control">
+                          </mat-form-field>
+                <div><span *ngIf="!RequestForm.get('Ccontact').valid && RequestForm.get('Ccontact').touched">
+                              Please enter contact number.</span></div> 
+    
+                <!-- Needed Date  -->
+                  <!-- <mat-form-field>
+                    <input matInput formControlName="Cdate" [matDatepicker]="picker" placeholder="Choose a date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field> -->
+    
+                  <br>
+                <button type="submit" [disabled]="RequestForm.status=='INVALID'" mat-raised-button color="warn">Register</button>
+          </form>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+
+
+  <div class="item" fxFlex="45%">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title style="margin-left: -48px"> <h2>Contact Details</h2></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="patient-container">
+          <!-- <form [formGroup]="RequestForm" (ngSubmit)="onSubmit()">
+ 
+          </form> -->
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

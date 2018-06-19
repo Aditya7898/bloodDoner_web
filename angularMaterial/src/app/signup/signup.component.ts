@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UserDataService } from '../user-data.service';
 
 @Component({
   selector: 'app-signup',
@@ -27,15 +29,33 @@ export class SignupComponent implements OnInit {
     { value: 'Jabalpur' }
   ];
 
-  tiles = [
-    {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
-    {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
-    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
-    {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
-  ];
-  constructor() { }
+// variable
+show: boolean;
+signupForm: FormGroup;
+
+
+constructor(private authService: UserDataService) {
+  this.show = false;
+ }
+// click event function toggle
+password() {
+    this.show = !this.show;
+    console.log('hello');
+}
 
   ngOnInit() {
+    this.signupForm = new FormGroup({
+        'fullName': new FormControl( null, Validators.required),
+        'email': new FormControl(null, [Validators.required, Validators.email]),
+        'contact': new FormControl(null, [Validators.required, Validators.maxLength(12), Validators.minLength(10)]),
+        'city': new FormControl(null, Validators.required),
+        'bloodGroup': new FormControl(null, Validators.required),
+        'password': new FormControl(null, [Validators.required, Validators.minLength(6)])
+    });
+  }
+  onSubmit() {
+    this.authService.signup(this.signupForm);
+    console.log(this.signupForm);
   }
 
 }

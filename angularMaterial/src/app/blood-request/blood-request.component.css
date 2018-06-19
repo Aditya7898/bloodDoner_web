@@ -1,0 +1,34 @@
+.example-container {
+    display: flex;
+    flex:1 ;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+
+  .example-card {
+      margin-top: 100px
+  }
+
+  .mat-form-field{
+    width:400px !important;
+}
+
+@media(max-width:768px){
+    .mat-form-field{
+        width:100% !important;
+    }
+}
+
+
+/* .flexred{
+    background-color: red;
+}
+.flexblue{
+    background-color: blue !important;
+}
+.flexgreen{
+    background-color: green;
+} */

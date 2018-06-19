@@ -1,15 +1,19 @@
-.example-container {
+/* .example-container {
     display: flex;
     flex-direction: column;
-  }
+  } */
   
-  .example-container > * {
+  /* .example-container > * {
     width: 100%;
-  }
+  } */
 
   /* mat-grid-tile{
       background: rgb(6, 67, 107);
   } */
+
+  raised-button.mat-warn {
+    background-color: rgb(233, 30, 99) !important;
+}
 
   .mat-form-field{
     width:400px !important;
