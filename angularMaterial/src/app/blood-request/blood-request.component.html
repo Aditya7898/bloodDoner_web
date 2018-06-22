@@ -1,6 +1,7 @@
 <!--  -->
 <div class="container-fluid" fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="row" fxLayout.gt="row" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
 
+  
   <div class="item" fxFlex="45%">
    
     <mat-card class="example-card">
@@ -82,11 +83,11 @@
                               Please enter contact number.</span></div> 
     
                 <!-- Needed Date  -->
-                  <!-- <mat-form-field>
+                  <mat-form-field>
                     <input matInput formControlName="Cdate" [matDatepicker]="picker" placeholder="Choose a date">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
-                  </mat-form-field> -->
+                  </mat-form-field>
     
                   <br>
                 <button type="submit" [disabled]="RequestForm.status=='INVALID'" mat-raised-button color="warn">Register</button>
@@ -109,6 +110,21 @@
           <!-- <form [formGroup]="RequestForm" (ngSubmit)="onSubmit()">
  
           </form> -->
+          <ul>
+              <li *ngFor="let request of requestList | async">
+
+                <table>
+                  <tr>
+                    <td><i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp; {{ request.Pname }}</td>
+                    <td><i class="fa fa-neuter" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;{{ request.Pcity}}</td>
+                  </tr>
+                  <tr>
+                    <td><i class="fa fa-tint" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;{{ request.Pbloodgroup }}</td>
+                    <td> <i class="fa fa-question-circle" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;{{request.Cdate | date}}</td>
+                  </tr>
+                </table>
+              </li><br><br>
+            </ul>
         </div>
       </mat-card-content>
     </mat-card>

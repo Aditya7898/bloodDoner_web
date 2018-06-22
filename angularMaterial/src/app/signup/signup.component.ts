@@ -56,6 +56,8 @@ password() {
   onSubmit() {
     this.authService.signup(this.signupForm);
     console.log(this.signupForm);
+
+    this.signupForm.reset();
   }
 
 }

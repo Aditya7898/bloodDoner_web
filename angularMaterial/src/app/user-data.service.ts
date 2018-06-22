@@ -1,5 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList  } from 'angularfire2/database';
+
 import { AngularFireAuth  } from 'angularfire2/auth';
 import * as firebase from 'firebase';
 import { FormGroup } from '@angular/forms';
@@ -9,15 +10,18 @@ import { Request } from './request.interface';
 @Injectable()
 export class UserDataService {
 
-
+  requestList: AngularFireList<any>;
   user: any = null;
   user$: Observable<firebase.User>;
   data: any;
+
+
 
   constructor(private db: AngularFireDatabase, private afAuth: AngularFireAuth) {
         this.user$ = afAuth.authState;
         this.user$.subscribe(x => console.log(x));
   }
+
 
   signup(signupdata: FormGroup) {
     console.log(signupdata.value.email, signupdata.value.pass);
@@ -39,7 +43,6 @@ export class UserDataService {
 
 
   save(user: firebase.User, userData: FormGroup) {
-
     this.db.object('/users/' + user.uid).update({
       Name: userData.value.fullName,
       BloodGroup: userData.value.bloodGroup,
@@ -64,14 +67,23 @@ export class UserDataService {
   }
 
 
-  request( requestData: FormGroup ) {
-    this.user$.subscribe(user => {
-      if (user) {
-        console.log(user);
-        this.db.list('/request').push(requestData);
-      }
+  request(data: FormGroup) {
+
+    this.requestList = this.db.list('requests');
+    console.log(this.requestList);
+    this.requestList.push({
+      Pbloodgroup: data.value.Pbloodgroup,
+      Pcity: data.value.Pcity,
+      Pdoctor: data.value.Pdoctor,
+      Address: data.value.Address,
+      Cname: data.value.Cname,
+      Ccontact: data.value.Ccontact,
+      Cemail: data.value.Cemail,
+      Pname: data.value.Pname,
+      Cdate: data.value.Cdate.toString()
     });
   }
+
 
 
   getUser() {

@@ -4,28 +4,29 @@
         <!-- form start -->
       
          <h2>Search For Blood</h2>
-
+        <form [formGroup]="searchBlood" (ngSubmit)="onSubmit()">
           <!-- select Input BloodGroups -->
              <mat-form-field>
-                <mat-select placeholder="Blood Group">
-                   <mat-option *ngFor="let group of bloodGroups" [value]="group.value">
+                <mat-select placeholder="Blood Group" formControlName="Pbloodgroup">
+                   <mat-option *ngFor="let group of bloodGroups" class="form-control" [value]="group.value">
                      {{ group.value }}
                     </mat-option>
                  </mat-select>
               </mat-form-field>
-
+           <br>
            <!-- select Input city -->
            <mat-form-field>
-             <mat-select placeholder="Select City">
-               <mat-option *ngFor="let city of cities" [value]="city.value">
+             <mat-select placeholder="Select City" formControlName="Pcity">
+               <mat-option *ngFor="let city of cities" class="form-control" [value]="city.value">
                  {{ city.value }}
                </mat-option>
              </mat-select>
            </mat-form-field>
            <br>
-           <mat-checkbox><h5>I have read and agree to abide by the terms and conditions</h5></mat-checkbox>
+           <!-- <mat-checkbox><h5>I have read and agree to abide by the terms and conditions</h5></mat-checkbox> -->
            <br>
            <button mat-raised-button style="width:auto" color="warn">Request</button>
+        </form>
          </div>
   <div class="flexgreen"fxFlex="50%" fxFlex.xs="10%"></div>
 </div>

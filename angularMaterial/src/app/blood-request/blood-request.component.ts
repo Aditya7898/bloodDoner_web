@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { UserDataService } from '../user-data.service';
+import { Observable } from 'rxjs';
+import { AngularFireDatabase, AngularFireList  } from 'angularfire2/database';
+import { AngularFireAuth  } from 'angularfire2/auth';
+import * as firebase from 'firebase';
+import { FirebaseListObservable } from 'angularfire2/database-deprecated';
+import { LimitToOptions } from 'angularfire2/database-deprecated/interfaces';
 
 @Component({
   selector: 'app-blood-request',
@@ -8,6 +14,7 @@ import { UserDataService } from '../user-data.service';
   styleUrls: ['./blood-request.component.css']
 })
 export class BloodRequestComponent implements OnInit {
+
 
   // tslint:disable-next-line:whitespace
   // bloodGroups: any[] = [1, 2, 3, 4, 5, 6];
@@ -33,8 +40,9 @@ export class BloodRequestComponent implements OnInit {
 show: boolean;
 RequestForm: FormGroup;
 request: any;
+requestList: Observable<any[]>;
 
-constructor(private userDataService: UserDataService, private _formBuilder: FormBuilder) {
+constructor(private userDataService: UserDataService, private db: AngularFireDatabase) {
   this.show = false;
  }
 // click event function toggle
@@ -54,17 +62,16 @@ password() {
          'Cname': new FormControl( null, Validators.required),
          'Ccontact': new FormControl(null, [Validators.required]),
          'Cemail': new FormControl(null, [Validators.required, Validators.email]),
-        //  'Cdate': new FormControl(null, Validators.required),
+         'Cdate': new FormControl(null, Validators.required),
       });
+      this.requestList = this.db.list('requests', ref => ref.limitToLast(5)).valueChanges();
 
-
+      console.log(this.requestList);
   }
   onSubmit() {
-    // this.userDataService.request(this.RequestForm);
-    this.request = this.RequestForm;
-    console.log(this.request);
     this.userDataService.request(this.RequestForm);
     console.log(this.RequestForm);
   }
+
 
 }

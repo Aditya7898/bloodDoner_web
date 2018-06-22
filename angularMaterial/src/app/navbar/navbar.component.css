@@ -11,7 +11,9 @@
   .hidden{
     display: none;
   }
-  
+  .mat-drawer-transition .mat-drawer-backdrop{
+    position: fixed !important;
+  }
   .spacer{
     flex: 1 1 auto;
   }

@@ -30,6 +30,7 @@ import { BloodRequestComponent } from './blood-request/blood-request.component';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { FirebaseListObservable } from 'angularfire2/database-deprecated';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserDataService } from './user-data.service';
@@ -37,6 +38,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MatDatepickerModule} from '@angular/material/datepicker';
 import { NativeDateAdapter} from '@angular/material';
 import { MatNativeDateModule} from '@angular/material';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,7 @@ import { MatNativeDateModule} from '@angular/material';
     LayoutModule, MatToolbarModule, MatSidenavModule, MatListModule,
     MatFormFieldModule, MatInputModule, MatSelectModule, MatTabsModule,
     FlexLayoutModule, MatCheckboxModule, MatCardModule, MatDatepickerModule,
-    MatNativeDateModule,
+    MatNativeDateModule, MatTooltipModule,
 
    // firebase configuration
     AngularFireModule.initializeApp(environment.firebase),

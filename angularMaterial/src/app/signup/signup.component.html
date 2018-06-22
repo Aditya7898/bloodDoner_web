@@ -11,7 +11,8 @@
             matInput 
             placeholder="Full Name" 
             formControlName="fullName"
-            class="form-control">
+            class="form-control"
+            #reset>
         </mat-form-field>
         <div><span *ngIf="!signupForm.get('fullName').valid && signupForm.get('fullName').touched">
         Please enter full name.</span></div> 
