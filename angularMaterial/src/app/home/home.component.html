@@ -30,4 +30,9 @@
          </div>
   <div class="flexgreen"fxFlex="50%" fxFlex.xs="10%"></div>
 </div>
-   
+<ul>
+  <!-- <li>hii</li> -->
+  <li *ngFor="let doner of requiredDoners">
+      {{ doner.Name }} {{ doner.BloodGroup }} {{ doner.City }} {{ doner.Email }} {{ doner.Phone }}
+  </li>
+</ul>

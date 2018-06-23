@@ -32,7 +32,11 @@ export class HomeComponent implements OnInit {
   ];
 
   searchBlood: FormGroup;
-  requestList: Observable<any>;
+  requestList: Observable<any[]>;
+  Doners: any[];
+  requiredDoners: any[] = [];
+  j = 0;
+
   isHandset$: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.Handset);
 
   constructor(private breakpointObserver: BreakpointObserver, private db: AngularFireDatabase,
@@ -52,23 +56,27 @@ export class HomeComponent implements OnInit {
       'Pcity': new FormControl(null, [Validators.required]),
     });
 
-
+    this.authService.getUser();
    }
 
    onSubmit() {
-    // this.requestList = this.db.list('requests', ref => ref.child('')).valueChanges();
-    // console.log(this.requestList);
-     const ref = firebase.database().ref('users');
-     const privateTodosRef  =    ref.orderByChild('BloodGroup')
-                                 .equalTo(this.searchBlood.value.Pbloodgroup);
-     let privateTodos;
+    // tslint:disable-next-line:max-line-length
+    this.requestList = this.db.list('users', ref => ref.orderByChild('BloodGroup').equalTo(this.searchBlood.value.Pbloodgroup)).valueChanges();
 
-     privateTodosRef.on('value', function(response) {
-     privateTodos = response.val();
-     console.log(privateTodos);
-
-        // const aditya  = ref.orderByChild('Pbloodgroup').equalTo(this.searchBlood.value.Pbloodgroup);
-        // console.log(aditya);
+    this.requestList.subscribe(response => {
+    this.Doners = response;
+      for ( let i = 0; i < this.Doners.length; i++) {
+        if (this.Doners[i].City === this.searchBlood.value.Pcity) {
+            this.requiredDoners[this.j] = this.Doners[i];
+            console.log(this.requiredDoners[this.j]);
+            this.j++;
+        }
+      }
+      this.j = 0;
+      console.log(this.requiredDoners.length);
+      if (this.requiredDoners.length === 0) {
+          console.log('Sorry Data Unavilable');
+      }
     });
   }
 }

@@ -68,8 +68,10 @@
         <div><span *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched">
             Password must be grater than 6 characters.</span></div> 
         <br>
-        <button type="submit" [disabled]="signupForm.status=='INVALID'" mat-raised-button color="warn">Register</button>
+        <button type="submit" [disabled]="signupForm.status=='INVALID'" mat-raised-button color="warn">Register</button> 
       </form>
+        <button type="submit" [disabled]="signupForm.controls.value === null" (click)="resetForm()" mat-raised-button color="warn">Reset</button> 
+
     </div>
 
   </div>

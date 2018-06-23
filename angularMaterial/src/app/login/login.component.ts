@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-        this.dataService.login(this.loginForm);
+      this.dataService.login(this.loginForm);
   }
 
 }

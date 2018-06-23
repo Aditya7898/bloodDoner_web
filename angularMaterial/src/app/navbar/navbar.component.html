@@ -28,20 +28,20 @@
         <a mat-button routerLink="/requestBlood">Request Blood</a>
         <a mat-button routerLink="/aboutus">About Us</a>
         <a mat-button routerLink="/aboutus">Contact Us</a>
-        <a mat-button routerLink="/signup" type="submit">Sign Up</a>
       <ng-template #login>
-        <a  mat-button routerLink="/login">Login</a>
+          <a mat-button routerLink="/signup" type="submit">Sign Up</a>
+          <a mat-button routerLink="/login">Login</a>
       </ng-template>
-        <a mat-button (click)="logout()" *ngIf="authService.user$ | async as user; else login">Logout</a>
+        <span *ngIf="authService.user$ | async as user; else login">
+          <a mat-button *ngIf="authService.LoggingUser$ | async as loggingUser; else login"> {{loggingUser[0].Name }}</a>
+          <a mat-button (click)="logout()">Logout</a>
+        </span>
       </div>
     </mat-toolbar>
+    <ng-content></ng-content>
   </mat-sidenav-content>
 </mat-sidenav-container>
 <!-- menu end -->
-
-
-
-
 
 
   <div fxLayout="row" fxFlex>

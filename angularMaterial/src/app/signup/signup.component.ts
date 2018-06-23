@@ -37,6 +37,7 @@ signupForm: FormGroup;
 constructor(private authService: UserDataService) {
   this.show = false;
  }
+
 // click event function toggle
 password() {
     this.show = !this.show;
@@ -55,8 +56,14 @@ password() {
   }
   onSubmit() {
     this.authService.signup(this.signupForm);
-    console.log(this.signupForm);
+  }
 
+
+  resetForm() {
+    this.reset();
+  }
+
+  reset() {
     this.signupForm.reset();
   }
 

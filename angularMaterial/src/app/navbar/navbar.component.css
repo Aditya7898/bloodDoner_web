@@ -1,6 +1,7 @@
 /* navbar */
 .sidenav-container {
-    height: 100%;
+    height: 100% !important;
+    position: unset;
   }
   
   .sidenav {
@@ -17,6 +18,16 @@
   .spacer{
     flex: 1 1 auto;
   }
+  
+  .close{
+    z-index: 3;
+    outline: 0;
+    box-sizing: border-box;
+    overflow-y: auto;
+    transform: translate3d(-100%,0,0);
+    /* transform: translate3d(0px, 0px, 0px); */
+  }
+
   @media (max-width: 958px){
     .links{
       display: none;

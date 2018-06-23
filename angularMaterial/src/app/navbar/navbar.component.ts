@@ -11,10 +11,13 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class NavbarComponent implements OnInit {
 
+  username: any;
+  user: any[];
   isHandset$: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.Handset);
 
   constructor(private breakpointObserver: BreakpointObserver,
               public afAuth: AngularFireAuth, private authService: UserDataService) {
+
 
               }
 
@@ -24,7 +27,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
   }
-
 
 }
 

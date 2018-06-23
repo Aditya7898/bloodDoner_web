@@ -6,10 +6,11 @@ import * as firebase from 'firebase';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Request } from './request.interface';
-
+import { Router } from '@angular/router';
 @Injectable()
 export class UserDataService {
 
+  LoggingUser$: Observable<any>;
   requestList: AngularFireList<any>;
   user: any = null;
   user$: Observable<firebase.User>;
@@ -17,9 +18,20 @@ export class UserDataService {
 
 
 
-  constructor(private db: AngularFireDatabase, private afAuth: AngularFireAuth) {
+  constructor(private db: AngularFireDatabase, private afAuth: AngularFireAuth,
+               private router: Router) {
         this.user$ = afAuth.authState;
         this.user$.subscribe(x => console.log(x));
+
+        this.user$.subscribe(user => {
+          if (user) {
+            this.LoggingUser$ = this.db.list('users', ref => ref.orderByKey().equalTo(user.uid)).valueChanges();
+            this.LoggingUser$.subscribe(response => {
+              console.log(response);
+              this.user = response;
+            });
+          }
+        });
   }
 
 
@@ -29,10 +41,10 @@ export class UserDataService {
        .then(response => {
          console.log(response);
          if (response) {
+           console.log(response);
           this.user$.subscribe(user => {
             if (user) {
-              console.log(user);
-              console.log(signupdata);
+              this.router.navigate(['/home']);
               this.save(user, signupdata);
             }
           });
@@ -86,11 +98,17 @@ export class UserDataService {
 
 
 
+  // console.log(user);
+  // console.log(user.uid);
+  // console.log(this.LoggingUser);
   getUser() {
     this.user$.subscribe(user => {
       if (user) {
-        console.log(user);
-        this.user = user;
+        this.LoggingUser$ = this.db.list('users', ref => ref.orderByKey().equalTo(user.uid)).valueChanges();
+        this.LoggingUser$.subscribe(response => {
+          console.log(response);
+          this.user = response;
+        });
       }
     });
     return this.user;
