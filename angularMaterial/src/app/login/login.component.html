@@ -4,24 +4,32 @@
     <mat-grid-tile>
         <div class="example-container">
           <h2 style="text-align:center">Login</h2>
-          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <form (ngSubmit)="onSubmit()">
               <mat-form-field>
-                  <input 
-                      matInput
-                      formControlName="email" 
-                      class="form-control"
-                      placeholder="Email">
+                  <input matInput
+                         type="text"
+                         class="form-control" 
+                         id="email" name="email" 
+                         placeholder="Email"
+                         required
+                         [(ngModel)]="email">
                 </mat-form-field>
-                <mat-form-field>
-                  <input 
-                  matInput 
-                  formControlName="password"
-                  class="form-control"
-                  placeholder="Password">
+               
+                <mat-form-field>    
+                  <input matInput
+                         type="password"
+                         class="form-control" 
+                         id="password" 
+                         name="password" 
+                         required
+                         placeholder="Password"
+                         [(ngModel)]="password">
                 </mat-form-field>
                 <br>
-                <button [disabled]="!loginForm.status=='INVALID'" mat-raised-button color="primary">Login</button>
-          </form>
+                <button class="fullbtn" mat-raised-button color="primary">Login</button>
+            </form>
+            <a (click)="resetEmail()" style="text-align:center;margin-top:5px;">forgot password ?</a>
+
           </div> 
     </mat-grid-tile>
   

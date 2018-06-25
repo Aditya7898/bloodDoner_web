@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { UserDataService } from '../user-data.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,7 +10,10 @@ import { UserDataService } from '../user-data.service';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm: FormGroup;
+  loginForm = {};
+  email: string;
+  password: string;
+
 
   constructor(private dataService: UserDataService) {
   }
@@ -22,7 +26,11 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-      this.dataService.login(this.loginForm);
+      this.dataService.login(this.email, this.password);
+  }
+
+  resetEmail() {
+    this.dataService.resetPassword(this.email);
   }
 
 }

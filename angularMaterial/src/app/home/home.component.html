@@ -1,38 +1,123 @@
-<div fxLayout="row" fxLayoutGap="5px" fxLayout.xs="100%">
-  <div class="flexred" fxFlex="10%" fxFlex.xs="10%"></div>
-  <div class="flexblue" fxFlex="40%" fxFlex.xs="80%">
-        <!-- form start -->
-      
-         <h2>Search For Blood</h2>
-        <form [formGroup]="searchBlood" (ngSubmit)="onSubmit()">
-          <!-- select Input BloodGroups -->
-             <mat-form-field>
-                <mat-select placeholder="Blood Group" formControlName="Pbloodgroup">
-                   <mat-option *ngFor="let group of bloodGroups" class="form-control" [value]="group.value">
-                     {{ group.value }}
-                    </mat-option>
-                 </mat-select>
-              </mat-form-field>
-           <br>
-           <!-- select Input city -->
-           <mat-form-field>
-             <mat-select placeholder="Select City" formControlName="Pcity">
-               <mat-option *ngFor="let city of cities" class="form-control" [value]="city.value">
-                 {{ city.value }}
-               </mat-option>
-             </mat-select>
-           </mat-form-field>
-           <br>
-           <!-- <mat-checkbox><h5>I have read and agree to abide by the terms and conditions</h5></mat-checkbox> -->
-           <br>
-           <button mat-raised-button style="width:auto" color="warn">Request</button>
-        </form>
-         </div>
-  <div class="flexgreen"fxFlex="50%" fxFlex.xs="10%"></div>
+<div class="container space">
+
+<blockquote style="font-size: 30px;font-weight: 700;color: #d1314d;margin: 0px;text-align: center;padding-top: 85px;">“Bring a life back to power. Make blood donation your responsibility”</blockquote>
+
+  <div class="imageBg" fxLayout="row" fxLayoutGap="5px" fxLayout.xs="100%">
+    <div class="flexred" fxFlex="5%" fxFlex.xs="10%"></div>
+    <div class="flexblue" fxFlex="40%" fxFlex.xs="80%">
+      <!-- form start -->
+      <h2 style="margin-top:150px;font-family: 'Francois One', sans-serif;letter-spacing: 2px">Search Blood Doners</h2>
+      <form [formGroup]="searchBlood" (ngSubmit)="onSubmit()" class="form-full-width">
+        <!-- select Input BloodGroups -->
+        <mat-form-field class="input-full-width">
+          <mat-select placeholder="Blood Group" formControlName="Pbloodgroup">
+            <mat-option *ngFor="let group of bloodGroups" class="form-control" [value]="group.value">
+              {{ group.value }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+        <!-- select Input city -->
+        <mat-form-field class="input-full-width">
+          <mat-select placeholder="Select City" formControlName="Pcity">
+            <mat-option *ngFor="let city of cities" class="form-control" [value]="city.value">
+              {{ city.value }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+        <!-- <mat-checkbox><h5>I have read and agree to abide by the terms and conditions</h5></mat-checkbox> -->
+        <br>
+        <button mat-raised-button style="width:auto" color="warn">Search</button>
+      </form>
+    </div>
+    <div class="flexgreen" fxFlex fxFlex.xs="10%">
+     
+    </div>
+  </div>
+
 </div>
+
 <ul>
   <!-- <li>hii</li> -->
   <li *ngFor="let doner of requiredDoners">
-      {{ doner.Name }} {{ doner.BloodGroup }} {{ doner.City }} {{ doner.Email }} {{ doner.Phone }}
+    {{ doner.Name }} {{ doner.BloodGroup }} {{ doner.City }} {{ doner.Email }} {{ doner.Phone }}
   </li>
 </ul>
+
+
+
+<div fxLayout="row">
+  <div fxLayout fxFlex="5%"></div>
+  <div fxLayout fxFlex="50%">
+    <div class="patient-container">
+      <mat-toolbar>
+        <i class="fa fa-list-alt"></i> &nbsp; &nbsp; &nbsp;Recent Blood Requests</mat-toolbar>
+      <ul>
+        <li *ngFor="let request of requestList | async; let i = index">
+          <table>
+            <tr>
+              <td>
+                <i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp; {{ request.Pname }}</td>
+              <td>
+                <i class="fa fa-neuter" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;{{ request.Pcity}}</td>
+            </tr>
+            <tr>
+              <td>
+                <i class="fa fa-tint" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;{{ request.Pbloodgroup }}</td>
+              <td>
+                <div class="tooltip">
+                  <i class="fa fa-question-circle" aria-hidden="true"></i>
+                  <span class="tooltiptext">When required..</span>
+                </div>&nbsp;&nbsp;&nbsp;{{request.Cdate | date}}</td>
+            </tr>
+          </table>
+          <br>
+          <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <span style="font-family: 'Capriola', sans-serif;font-weight: 500;color: #9d9c9a;font-size: 12px;">Contact Information</span>
+                </mat-panel-title>
+                <mat-panel-description>
+                  View
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <table class="infoTable">
+                <tr>
+                  <td>Name:</td>
+                  <td>{{ request.Cname }}</td>
+                </tr>
+                <tr>
+                  <td>Phone:</td>
+                  <td>{{ request.Ccontact }} </td>
+                </tr>
+                <tr>
+                  <td>Email:</td>
+                  <td> {{ request.Cemail }} </td>
+                </tr>
+                <tr>
+                  <td>Hospital:</td>
+                  <td>{{ request.Address }} </td>
+                </tr>
+                <tr>
+                  <td>Doctor:</td>
+                  <td>{{ request.Pdoctor }} </td>
+                </tr>
+              </table>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </li>
+        <br>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div fxLayout="row">
+  <div fxLayout fxFlex="5%"></div>
+  <div fxLayout fxFlex="50%">
+
+  </div>
+  <div fxLayout fxFlex></div>
+</div>

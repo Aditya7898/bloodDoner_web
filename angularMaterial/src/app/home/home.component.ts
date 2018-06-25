@@ -31,8 +31,10 @@ export class HomeComponent implements OnInit {
     { value: 'Jabalpur' }
   ];
 
+  index: any = null;
   searchBlood: FormGroup;
   requestList: Observable<any[]>;
+  searchList: Observable<any[]>;
   Doners: any[];
   requiredDoners: any[] = [];
   j = 0;
@@ -49,21 +51,21 @@ export class HomeComponent implements OnInit {
   }
 
    ngOnInit() {
-    // this.requestList = this.db.list('requests', ref => ref.limitToLast(5)).valueChanges();
-    // console.log(this.requestList);
+    this.requestList = this.db.list('requests', ref => ref.limitToLast(4)).valueChanges();
+    console.log(this.requestList);
     this.searchBlood = new FormGroup({
       'Pbloodgroup': new FormControl(null, [Validators.required]),
       'Pcity': new FormControl(null, [Validators.required]),
     });
-
-    this.authService.getUser();
+    // this.requestList = this.db.list('requests', ref => ref.limitToLast(5)).valueChanges();
+    // console.log(this.requestList);
    }
 
    onSubmit() {
     // tslint:disable-next-line:max-line-length
-    this.requestList = this.db.list('users', ref => ref.orderByChild('BloodGroup').equalTo(this.searchBlood.value.Pbloodgroup)).valueChanges();
+    this.searchList = this.db.list('users', ref => ref.orderByChild('BloodGroup').equalTo(this.searchBlood.value.Pbloodgroup)).valueChanges();
 
-    this.requestList.subscribe(response => {
+    this.searchList.subscribe(response => {
     this.Doners = response;
       for ( let i = 0; i < this.Doners.length; i++) {
         if (this.Doners[i].City === this.searchBlood.value.Pcity) {
@@ -78,6 +80,12 @@ export class HomeComponent implements OnInit {
           console.log('Sorry Data Unavilable');
       }
     });
+  }
+
+ public search(i) {
+   this.index = i;
+    console.log(i);
+    console.log('hii');
   }
 }
 

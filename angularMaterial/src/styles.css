@@ -3,3 +3,8 @@
 body{
     margin:0;
 }
+
+.mat-toolbar.mat-primary{
+    background: #ce213f     !important;
+    opacity: 0.9;
+}
