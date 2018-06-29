@@ -13,10 +13,11 @@ export class NavbarComponent implements OnInit {
 
   username: any;
   user: any[];
+  showFiller = false;
   isHandset$: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.Handset);
 
   constructor(private breakpointObserver: BreakpointObserver,
-              public afAuth: AngularFireAuth, private authService: UserDataService) {
+              public afAuth: AngularFireAuth, public authService: UserDataService) {
 
 
               }

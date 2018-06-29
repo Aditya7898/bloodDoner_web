@@ -1,0 +1,51 @@
+.form-full-width {
+    min-width: 200px;
+    max-width: 640px;
+    width:100%;
+    /* margin-top:160px; */
+}
+
+.input-full-width {
+    width: 100%;
+}
+.img{
+    height: -webkit-fill-available !important;
+}
+.containers-fluid{
+    position: relative; 
+
+}
+
+.containers-fluid .item {
+    position: absolute !important;
+    padding: 20px;
+    background: rgba(202, 202, 202, 0.27);
+    color:black;
+    /* width: -webkit-fill-available; */
+    height: -webkit-fill-available;
+    width: -webkit-fill-available;
+}
+
+ 
+      .item{
+        display: flex;
+        flex-direction: column;
+      }
+      .items{
+          margin-top: 20px;
+      }
+@media (max-width: 767px){
+    .item{
+      display: flex;
+      flex-direction: column;
+    }
+    .mat-step-label{
+        display: none !important;
+    }
+    .email{
+        margin-top: -50px;
+    }
+    .quote{
+        margin-top: 65px !important;
+    }
+}

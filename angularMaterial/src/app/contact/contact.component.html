@@ -1,0 +1,92 @@
+
+
+
+
+
+
+
+  <!--  -->
+<div class="containers-fluid" fxLayout="column" fxLayout.xs="column" fxLayoutGap="5px">
+  <div class="flexred" fxFlex fxFlex.xs="10%"></div>
+
+<div class="container"  style="background:#fff">
+    <div class="items" fxFlex="90%" fxFlex.xs="90%">
+        <span style="font-size: 20px;font-weight: 700;font-family: cursive;letter-spacing: 1.2px;">
+          Complete following steps..
+        </span>
+            <mat-vertical-stepper [linear]="isLinear" #stepper>
+              <mat-step [stepControl]="firstFormGroup">
+                <form [formGroup]="firstFormGroup" (ngSubmit)="onSubmit()" class="form-full-width">
+                  <ng-template matStepLabel>Fill out your name</ng-template>
+                  <mat-form-field class="input-full-width">
+                    <input matInput placeholder="Full Name" formControlName="firstCtrl">
+                  </mat-form-field>
+                  <div>
+                    <button mat-raised-button mat-button matStepperNext>Next</button>
+                  </div>
+                </form>
+              </mat-step>
+    
+              <mat-step [stepControl]="firstFormGroup">
+                <form [formGroup]="firstFormGroup" class="form-full-width">
+                  <ng-template matStepLabel>Fill out your Email</ng-template>
+                  <mat-form-field class="input-full-width">
+                    <input matInput placeholder="Address" formControlName="secondCtrl">
+                  </mat-form-field>
+                  <div>
+                    <button mat-raised-button mat-button matStepperPrevious>Back</button>
+                    <button mat-raised-button mat-button matStepperNext>Next</button>
+                  </div>
+                </form>
+              </mat-step>
+    
+              <mat-step [stepControl]="firstFormGroup">
+                  <form [formGroup]="firstFormGroup" (ngSubmit)="onSubmit()" class="form-full-width">
+                    <ng-template matStepLabel>Fill out your Phone</ng-template>
+                    <mat-form-field class="input-full-width"> 
+                      <input matInput placeholder="Phone" formControlName="thirdCtrl" >
+                    </mat-form-field>
+                    <div>
+                      <button mat-raised-button mat-button matStepperPrevious>Back</button>
+                      <button mat-raised-button mat-button matStepperNext>Next</button>
+                    </div>
+                  </form>
+                </mat-step>
+    
+                <mat-step [stepControl]="firstFormGroup">
+                    <form [formGroup]="firstFormGroup" (ngSubmit)="onSubmit()" class="form-full-width">
+                      <ng-template matStepLabel>Write your message</ng-template>
+                      <mat-form-field class="input-full-width">
+                          <textarea matInput placeholder="Message" formControlName="fourthCtrl"></textarea>
+                      </mat-form-field>
+                      <div>
+                        <button mat-raised-button mat-button matStepperPrevious>Back</button>
+                        <button mat-raised-button type="submit" mat-button matStepperNext>Next</button>
+                      </div>
+                    </form>
+                </mat-step>
+              <mat-step>
+                <ng-template matStepLabel>Done</ng-template>
+                <span style="margin-left:25px;">You are now done.</span>
+                <div>
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button mat-button (click)="stepper.reset()">Done</button>
+                </div>
+              </mat-step>
+            </mat-vertical-stepper>
+      </div>
+</div>
+<i class="social fa fa-facebook"id="f1" aria-hidden="true"></i>
+<i class="social fa fa-twitter"id="f1" aria-hidden="true"></i>
+<i class="social fa fa-instagram"id="f1" aria-hidden="true"></i>
+<i class="social fa fa-youtube"id="f1" aria-hidden="true"></i>
+<i class="social fa fa-github"id="f1"aria-hidden="true"></i><br>
+
+
+  <div class="flexred" fxFlex="5%" fxFlex.xs="10%"></div>
+</div>
+
+
+
+
+

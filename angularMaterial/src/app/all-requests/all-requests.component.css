@@ -1,0 +1,8 @@
+li{
+    list-style-type: none;
+    border: 1px solid red;
+    margin-bottom: 10px;
+}
+td, th {
+    padding: 15px;
+}

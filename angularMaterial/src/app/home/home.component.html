@@ -1,59 +1,99 @@
 <div class="container space">
 
-<blockquote style="font-size: 30px;font-weight: 700;color: #d1314d;margin: 0px;text-align: center;padding-top: 85px;">“Bring a life back to power. Make blood donation your responsibility”</blockquote>
+  <blockquote style="border:none;font-size: 30px;font-weight: 700;color: #d1314d;margin: 0px;text-align: center;padding-top: 85px;">“Bring a life back to power. Make blood donation your responsibility”</blockquote>
+  <div class="row flexblue">
+    <div class="col-lg-6 col-md-6">
+      <img src="../../assets/blood.png" class="bloodImg1" style="width:100%">
+      <img src="../../assets/blood3.png"class="bloodImg2" style="width: 50%;margin-left: 100px;margin-top: 60px;">
+    </div>
 
-  <div class="imageBg" fxLayout="row" fxLayoutGap="5px" fxLayout.xs="100%">
-    <div class="flexred" fxFlex="5%" fxFlex.xs="10%"></div>
-    <div class="flexblue" fxFlex="40%" fxFlex.xs="80%">
-      <!-- form start -->
-      <h2 style="margin-top:150px;font-family: 'Francois One', sans-serif;letter-spacing: 2px">Search Blood Doners</h2>
-      <form [formGroup]="searchBlood" (ngSubmit)="onSubmit()" class="form-full-width">
-        <!-- select Input BloodGroups -->
-        <mat-form-field class="input-full-width">
-          <mat-select placeholder="Blood Group" formControlName="Pbloodgroup">
-            <mat-option *ngFor="let group of bloodGroups" class="form-control" [value]="group.value">
-              {{ group.value }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <br>
-        <!-- select Input city -->
-        <mat-form-field class="input-full-width">
-          <mat-select placeholder="Select City" formControlName="Pcity">
-            <mat-option *ngFor="let city of cities" class="form-control" [value]="city.value">
-              {{ city.value }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <br>
-        <!-- <mat-checkbox><h5>I have read and agree to abide by the terms and conditions</h5></mat-checkbox> -->
-        <br>
-        <button mat-raised-button style="width:auto" color="warn">Search</button>
-      </form>
-    </div>
-    <div class="flexgreen" fxFlex fxFlex.xs="10%">
-     
-    </div>
+    <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12" >
+        <!-- form start -->
+        <h2 style="margin-top:70px;font-family: 'Francois One', sans-serif;letter-spacing: 2px">Search Blood Doners</h2>
+        <form [formGroup]="searchBlood" (ngSubmit)="onSubmit()" class="form-full-width">
+          <!-- select Input BloodGroups -->
+          <mat-form-field class="input-full-width">
+            <mat-select placeholder="Blood Group" formControlName="Pbloodgroup">
+              <mat-option *ngFor="let group of bloodGroups" class="form-control" [value]="group.value">
+                {{ group.value }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br>
+          <!-- select Input city -->
+          <mat-form-field class="input-full-width">
+            <mat-select placeholder="Select City" formControlName="Pcity">
+              <mat-option *ngFor="let city of cities" class="form-control" [value]="city.value">
+                {{ city.value }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br>
+          <!-- <mat-checkbox><h5>I have read and agree to abide by the terms and conditions</h5></mat-checkbox> -->
+          <br>
+          <div class="buttons" style="margin-bottom:30px;display: flex;justify-content: space-between;">
+            <button mat-raised-button style="width:45% !important" color="warn">Search</button>
+            <button mat-raised-button style="width:45% !important" (click)="reset()" color="warn">Reset</button>
+          </div>
+        </form>
+        <!-- form end -->
+      </div>
   </div>
-
 </div>
 
-<ul>
-  <!-- <li>hii</li> -->
-  <li *ngFor="let doner of requiredDoners">
-    {{ doner.Name }} {{ doner.BloodGroup }} {{ doner.City }} {{ doner.Email }} {{ doner.Phone }}
-  </li>
-</ul>
+<!-- <div class="container noresult" *ngIf="noresult">
+  <h3>Data is Unavilable for this search.</h3>
+</div> -->
+
+<div class="container">
+<div class="row" style="margin-bottom:30px;">
+    <h3 style="margin-left:20px;" *ngIf="requiredDoners.length != 0">Search Results</h3>
+    <div class="col-lg-4 col-md-4 col-sm-2 col-xs-12" *ngFor="let doner of requiredDoners">
+      <mat-card class="example-card">
+        <mat-card-content>
+          <!-- {{ doner.Name }} {{ doner.BloodGroup }} {{ doner.City }} {{ doner.Email }} {{ doner.Phone }} -->
+          <table>
+            <tr>
+              <td><i class="fa fa-user"></i></td>
+              <td>{{ doner.Name }}</td>
+            </tr>
+            <tr>
+              <td><i class="	fa fa-tint"></i></td>
+              <td>{{ doner.BloodGroup }}</td>
+            </tr>
+            <tr>
+              <td><i class="fa fa-map-pin"></i> </td>
+              <td>{{ doner.City }}</td>
+            </tr>
+            <tr>
+              <td><i class="fa fa-address-card"></i></td>
+              <td>{{ doner.Email }}</td>
+            </tr>
+            <tr>
+              <td><i class=" fa fa-phone-square"></i></td>
+              <td>{{ doner.Phone }}</td>
+            </tr>
+          </table>
+
+        </mat-card-content>
+        <mat-card-actions>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+</div>
+</div>
 
 
 
-<div fxLayout="row">
-  <div fxLayout fxFlex="5%"></div>
-  <div fxLayout fxFlex="50%">
-    <div class="patient-container">
-      <mat-toolbar>
-        <i class="fa fa-list-alt"></i> &nbsp; &nbsp; &nbsp;Recent Blood Requests</mat-toolbar>
-      <ul>
+<div class="container" style="margin-top:25px;">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <div class="patient-container" style="margin-bottom:20px;">
+        <mat-toolbar>
+          <i class="fa fa-list-alt"></i> &nbsp; &nbsp; &nbsp;Recent Blood Requests
+        </mat-toolbar>
+
         <li *ngFor="let request of requestList | async; let i = index">
           <table>
             <tr>
@@ -77,7 +117,7 @@
             <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
               <mat-expansion-panel-header>
                 <mat-panel-title>
-                  <span style="font-family: 'Capriola', sans-serif;font-weight: 500;color: #9d9c9a;font-size: 12px;">Contact Information</span>
+                  <span style="font-family: 'Capriola', sans-serif;font-weight: 500;color: #9d9c9a;font-size: 15px;">Contact Information</span>
                 </mat-panel-title>
                 <mat-panel-description>
                   View
@@ -109,15 +149,78 @@
           </mat-accordion>
         </li>
         <br>
-      </ul>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 donersPanel" style="margin-bottom:20px;">
+      <mat-accordion>
+        <mat-toolbar> Doners Guidelines</mat-toolbar>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-description>
+              Eligibilities
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <ul>
+            <li>Any donor, who is healthy, fit and not suffering from any transmittable diseases can donate blood.</li>
+            <li>Donor must be 18 -60 years age and having a minimum weight of 50Kg can donate blood.</li>
+            <li>Donor’s Hemoglobin level is 12.5% minimum.</li>
+            <li>A donor can again donate blood after 3 months of your last donation of blood.</li>
+            <li>Pulse rate must be between 50 to 100mm without any irregularities.</li>
+            <li>BP Diastolic 50 to 100 mm Hg and Systolic 100 to 180 mm Hg.</li>
+            <li>Body temperature should be normal and oral temperature should not exceed 37.5 degree Celsius.</li>
+          </ul>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-description>
+              Non-Eligibilities
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <ul>
+            <li>Donors should not suffer from Cardiac arrest, hypertension, kidney alignments, epilepsy or diabetics.</li>
+            <li>Ladies with a bad miscarriage should avoid donating blood for the next 6 months.</li>
+            <li>If donor already donated blood or have been treated for malaria within the last three months.</li>
+            <li>If donor undergone any immunization within the past one month.</li>
+            <li>If donor consumed alcohol within the last 24 hours.</li>
+            <li>If you are HIV+.</li>
+            <li>If donor had a dental work for next 24 hours and wait for one month if donor had a major dental procedure.</li>
+          </ul>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-description>
+              Preparation
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <ul>
+            <li>Prepare yourself by having enough fruit juice and water in the night and morning before you donate blood.</li>
+            <li>Avoid donating blood in empty stomach. Eat three hours before you donate blood. Avoid fatty foods. Eat food which
+              is rich in iron such as whole grains, eggs, and beef, and spinach, leafy vegetables, orange and citrus.</li>
+            <li>Don’t consume Alcohol or caffeine beverages before donating blood.</li>
+            <li>Avoid donating blood for 6 months if you had any major surgery.</li>
+          </ul>
+        </mat-expansion-panel>
+
+
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-description>
+              Post Donation Care
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <ul>
+            <li>Have some rest 5 to 20 minutes after donation. Do not drive after donation of blood.</li>
+            <li>Have some snacks and juice with high sugar content which will help to rejuvenate the blood sugar back up.</li>
+            <li>Have a good meal with high protein content such as Chicken, Beef etc,.</li>
+            <li>Do not consume Alcohol for 8 hours after donation of blood.</li>
+            <li>Avoid going for a heavy body works such as gym, dancing, running etc at least for next one day.</li>
+          </ul>
+        </mat-expansion-panel>
+      </mat-accordion>
     </div>
   </div>
 </div>
 
-<div fxLayout="row">
-  <div fxLayout fxFlex="5%"></div>
-  <div fxLayout fxFlex="50%">
 
-  </div>
-  <div fxLayout fxFlex></div>
-</div>

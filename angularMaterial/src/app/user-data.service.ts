@@ -65,7 +65,7 @@ export class UserDataService {
   }
 
 
-  login(email, password) {
+  login(email: string, password: string) {
     try {
       this.afAuth.auth.signInWithEmailAndPassword(email, password)
         .then(response => {
@@ -83,17 +83,20 @@ export class UserDataService {
 
     this.requestList = this.db.list('requests');
     console.log(this.requestList);
-    this.requestList.push({
-      Pbloodgroup: data.value.Pbloodgroup,
-      Pcity: data.value.Pcity,
-      Pdoctor: data.value.Pdoctor,
-      Address: data.value.Address,
-      Cname: data.value.Cname,
-      Ccontact: data.value.Ccontact,
-      Cemail: data.value.Cemail,
-      Pname: data.value.Pname,
-      Cdate: data.value.Cdate.toString()
-    });
+    return  this.requestList.push({
+        Pbloodgroup: data.value.Pbloodgroup,
+        Pcity: data.value.Pcity,
+        Pdoctor: data.value.Pdoctor,
+        Address: data.value.Address,
+        Cname: data.value.Cname,
+        Ccontact: data.value.Ccontact,
+        Cemail: data.value.Cemail,
+        Pname: data.value.Pname,
+        Cdate: data.value.Cdate.toString()
+      });
+
+
+
   }
 
 
@@ -116,9 +119,8 @@ export class UserDataService {
 
 
   resetPassword(email: string) {
-    console.log(typeof(email));
-    this.afAuth.auth.sendPasswordResetEmail(email)
-      .then(response => { console.log(response); })
-      .catch(error => { console.log(error); });
+    return this.afAuth.auth.sendPasswordResetEmail(email);
+      // .then(response => { return response; console.log(response); })
+      // .catch(error => { console.log(error); return (error); });
   }
 }

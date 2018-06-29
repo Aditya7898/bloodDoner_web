@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row">
+      <h3 style="color: #fff;text-align: center;border: 1px solid red;background: #cf1f3d;padding: 10px;">All requests</h3>
+
+    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12" *ngFor="let request of requestList | async; let i = index">
+      <li>  
+      <table>
+              <tr>
+                <td>
+                  <i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp; {{ request.Pname }}</td>
+                <td>
+                  <i class="fa fa-neuter" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;{{ request.Pcity}}</td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fa fa-tint" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;{{ request.Pbloodgroup }}</td>
+                <td>
+                  <div class="tooltip">
+                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    <span class="tooltiptext">When required..</span>
+                  </div>&nbsp;&nbsp;&nbsp;{{request.Cdate | date}}</td>
+              </tr>
+            </table>
+            <br>
+            <mat-accordion>
+              <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <span style="font-family: 'Capriola', sans-serif;font-weight: 500;color: #9d9c9a;font-size: 15px;">Contact Information</span>
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    View
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <table class="infoTable">
+                  <tr>
+                    <td>Name:</td>
+                    <td>{{ request.Cname }}</td>
+                  </tr>
+                  <tr>
+                    <td>Phone:</td>
+                    <td>{{ request.Ccontact }} </td>
+                  </tr>
+                  <tr>
+                    <td>Email:</td>
+                    <td> {{ request.Cemail }} </td>
+                  </tr>
+                  <tr>
+                    <td>Hospital:</td>
+                    <td>{{ request.Address }} </td>
+                  </tr>
+                  <tr>
+                    <td>Doctor:</td>
+                    <td>{{ request.Pdoctor }} </td>
+                  </tr>
+                </table>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </li> 
+    </div>
+  </div>
+</div>
+
+

@@ -30,13 +30,13 @@ export class HomeComponent implements OnInit {
     { value: 'Indore' },
     { value: 'Jabalpur' }
   ];
-
-  index: any = null;
+  panelOpenState = false;
   searchBlood: FormGroup;
   requestList: Observable<any[]>;
   searchList: Observable<any[]>;
   Doners: any[];
   requiredDoners: any[] = [];
+  noresult = false;
   j = 0;
 
   isHandset$: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.Handset);
@@ -46,17 +46,17 @@ export class HomeComponent implements OnInit {
 
               }
 
-  logout() {
-       this.afAuth.auth.signOut();
-  }
+
 
    ngOnInit() {
     this.requestList = this.db.list('requests', ref => ref.limitToLast(4)).valueChanges();
     console.log(this.requestList);
+
     this.searchBlood = new FormGroup({
       'Pbloodgroup': new FormControl(null, [Validators.required]),
       'Pcity': new FormControl(null, [Validators.required]),
     });
+    console.log(this.Doners);
     // this.requestList = this.db.list('requests', ref => ref.limitToLast(5)).valueChanges();
     // console.log(this.requestList);
    }
@@ -67,6 +67,7 @@ export class HomeComponent implements OnInit {
 
     this.searchList.subscribe(response => {
     this.Doners = response;
+    console.log(this.Doners);
       for ( let i = 0; i < this.Doners.length; i++) {
         if (this.Doners[i].City === this.searchBlood.value.Pcity) {
             this.requiredDoners[this.j] = this.Doners[i];
@@ -76,17 +77,25 @@ export class HomeComponent implements OnInit {
       }
       this.j = 0;
       console.log(this.requiredDoners.length);
+      console.log(this.Doners);
       if (this.requiredDoners.length === 0) {
           console.log('Sorry Data Unavilable');
+          this.noresult = true;
       }
     });
   }
 
- public search(i) {
-   this.index = i;
-    console.log(i);
-    console.log('hii');
-  }
+  logout() {
+    this.afAuth.auth.signOut();
+}
+
+public reset() {
+  this.noresult = false;
+  this.requiredDoners = [];
+  // this.searchBlood.reset();
+ this.searchBlood.controls.value = null;
+
+}
 }
 
 

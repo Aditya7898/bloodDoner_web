@@ -1,5 +1,5 @@
 .form-full-width {
-    min-width: 150px;
+    min-width: 200px;
     max-width: 500px;
     width:100%;
     /* margin-top:160px; */
@@ -11,11 +11,12 @@
 
 .space{
     z-index: 1;
-    background: linear-gradient(#e7c7cd,#ca0628);
     position: -webkit-sticky;
-    /* background-image: url('../../assets/hospital.jpg'); */
     background-size: cover;
-    height: -webkit-fill-available !important;
+    background: #fff;
+    height: min-content;
+    height: -moz-fit-content !important;
+    margin-bottom: 0px;
 }
 .mat-fab.mat-warn, .mat-flat-button.mat-warn, .mat-mini-fab.mat-warn, .mat-raised-button.mat-warn{
     background-color: #b41616;
@@ -25,7 +26,10 @@
     margin-top: 140px !important;
 }
 
-
+ul{
+    /* display: flex;
+    flex-direction: row-reverse; */
+}
 
 /* .fa-tint{
    color:red;
@@ -46,37 +50,71 @@
 
 td{
     font-size: 17px;
+    padding: 5px;
 }
 ul{
     padding: 25px;
 }
-li{
+.patient-container li{
     list-style-type: none;
-    box-shadow: -7px 1px 2px 1px #f4cbc8;
     padding: 12px;
+    width: -webkit-fill-available;
+    background-color: #fff;
+    border: 1px solid #cf203f;
+    margin-bottom: 1px;
+}
+@media (min-width:900px){
+    /* ul{
+        display: -webkit-inline-flex;
+    } */
 }
 
-
 .patient-container{
-    border: 1px solid #dc8292;
+    /* border: 1px solid #dc8292; */
     font-family: 'Poly', serif;
 }
 .mat-expansion-panel-header{
     height: 35px !important;
 }
-
+.donersPanel .mat-expansion-panel-header{
+    height: 51px !important;
+    font-size: 17px;
+}
+.donersPanel li{
+    list-style-type: decimal-leading-zero !important;
+    letter-spacing: 0.9px !important;
+    line-height: 25.8px !important;
+}
 .mat-toolbar{
-    font-size: 22px;
+    font-size: 18px;
     background: #ca0729;
     color: rgba(255, 255, 255, 0.87);
     font-weight: 700;opacity: 0.9;
 }
 
 .infoTable td {
-    font-family: 'Capriola', sans-serif; font-size:14px;
+    font-family: 'Capriola', sans-serif; 
+    font-size:15px;
+    font-weight: 600;
 }
-
-
+.mat-card {
+    width: auto;
+}
+.mat-raised-button.mat-warn{
+    background: #ca0729;
+}
+.bloodImg1{
+    display: none;
+}
+@media screen and (max-width:767px){
+    .bloodImg1{
+        display: block;
+        width: 100% !important;
+    } 
+    .bloodImg2{
+        display: none !important;
+    }
+}
 
 
 

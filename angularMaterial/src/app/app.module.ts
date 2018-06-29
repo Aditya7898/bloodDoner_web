@@ -28,7 +28,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { BloodRequestComponent } from './blood-request/blood-request.component';
 
 import { AngularFireModule } from 'angularfire2';
-import { environment } from '../environments/environment';
+import { environment } from '../environments/environment.prod';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FirebaseListObservable } from 'angularfire2/database-deprecated';
@@ -40,6 +40,11 @@ import { MatDatepickerModule} from '@angular/material/datepicker';
 import { NativeDateAdapter} from '@angular/material';
 import { MatNativeDateModule} from '@angular/material';
 import { MatTooltipModule} from '@angular/material/tooltip';
+import { MatDividerModule} from '@angular/material/divider';
+import { MatStepperModule} from '@angular/material/stepper';
+import { ContactComponent } from './contact/contact.component';
+import { FooterComponent } from './footer/footer.component';
+import { AllRequestsComponent } from './all-requests/all-requests.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +54,10 @@ import { MatTooltipModule} from '@angular/material/tooltip';
     LoginComponent,
     AboutusComponent,
     BloodRequestComponent,
-    NavbarComponent
+    NavbarComponent,
+    ContactComponent,
+    FooterComponent,
+    AllRequestsComponent
   ],
   imports: [
     BrowserModule,
@@ -62,8 +70,8 @@ import { MatTooltipModule} from '@angular/material/tooltip';
     LayoutModule, MatToolbarModule, MatSidenavModule, MatListModule,
     MatFormFieldModule, MatInputModule, MatSelectModule, MatTabsModule,
     FlexLayoutModule, MatCheckboxModule, MatCardModule, MatDatepickerModule,
-    MatNativeDateModule, MatTooltipModule, MatExpansionModule,
-
+    MatNativeDateModule, MatTooltipModule, MatExpansionModule, MatDividerModule,
+    MatStepperModule,
    // firebase configuration
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule, AngularFireAuthModule,
@@ -75,7 +83,9 @@ import { MatTooltipModule} from '@angular/material/tooltip';
       { path: 'requestBlood', component: BloodRequestComponent },
       { path: 'signup', component: SignupComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'aboutus', component: AboutusComponent }
+      { path: 'aboutus', component: AboutusComponent },
+      { path: 'contact', component: ContactComponent },
+      { path: 'requests', component: AllRequestsComponent }
     ])
   ],
   providers: [UserDataService],

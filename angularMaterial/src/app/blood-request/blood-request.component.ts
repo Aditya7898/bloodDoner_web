@@ -39,10 +39,14 @@ export class BloodRequestComponent implements OnInit {
 // variable
 show: boolean;
 RequestForm: FormGroup;
-request: any;
-requestList: Observable<any[]>;
+// request: any;
+// requestList: Observable<any[]>;
+isLinear = false;
+firstFormGroup: FormGroup;
+secondFormGroup: FormGroup;
 
-constructor(private userDataService: UserDataService, private db: AngularFireDatabase) {
+constructor(private userDataService: UserDataService, private _formBuilder: FormBuilder,
+            private db: AngularFireDatabase) {
   this.show = false;
  }
 // click event function toggle
@@ -64,11 +68,19 @@ password() {
          'Cemail': new FormControl(null, [Validators.required, Validators.email]),
          'Cdate': new FormControl(null, Validators.required),
       });
-      this.requestList = this.db.list('requests', ref => ref.limitToLast(5)).valueChanges();
-      console.log(this.requestList);
+
+      this.firstFormGroup = this._formBuilder.group({
+        firstCtrl: ['', Validators.required]
+      });
+      this.secondFormGroup = this._formBuilder.group({
+        secondCtrl: ['', Validators.required]
+      });
   }
   onSubmit() {
-    this.userDataService.request(this.RequestForm);
+    this.userDataService.request(this.RequestForm).then(res => {
+      alert('Request Send Successfully');
+      this.RequestForm.reset();
+    });
     console.log(this.RequestForm);
   }
 

@@ -1,90 +1,87 @@
-<!--  -->
-<div class="container" fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
 
-  <div class="item"  fxFlex="45%">
-
-    <div class="example-container">
-      <h2 style="text-align:center">Sign Up</h2>
-      <form [formGroup]="signupForm"(ngSubmit)="onSubmit()">
-        <mat-form-field>
-          <input 
-            matInput 
-            placeholder="Full Name" 
-            formControlName="fullName"
-            class="form-control"
-            #reset>
-        </mat-form-field>
-        <div><span *ngIf="!signupForm.get('fullName').valid && signupForm.get('fullName').touched">
-        Please enter full name.</span></div> 
-        
-
-        <mat-form-field>
-          <input 
-              matInput 
-              placeholder="Email" 
-              formControlName="email"
-              class="form-control">
-        </mat-form-field>
-        <div><span *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">
-            Please enter valid email.</span></div> 
-
-        <mat-form-field>
-          <input 
-             type="number"
-             matInput 
-             placeholder="Contact/ Mobile" 
-             formControlName="contact"
-             class="form-control">
-        </mat-form-field>
-        <div><span *ngIf="!signupForm.get('contact').valid && signupForm.get('contact').touched">
-            Please enter contact number.</span></div> 
-
-        <!-- select Input city -->
-        <mat-form-field>
-          <mat-select placeholder="Select City" formControlName="city">
-            <mat-option *ngFor="let city of cities" [value]="city.value" class="form-control">
-              {{ city.value }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <div><span *ngIf="!signupForm.get('city').valid && signupForm.get('city').touched">
-            Please select city.</span></div> 
-
-        <!-- select Input BloodGroups -->
-        <mat-form-field>
-          <mat-select placeholder="Blood Group" formControlName="bloodGroup">
-            <mat-option *ngFor="let group of bloodGroups" [value]="group.value" class="form-control">
-              {{ group.value }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <div><span *ngIf="!signupForm.get('bloodGroup').valid && signupForm.get('bloodGroup').touched">
-            Please select blood group.</span></div> 
-
-        <mat-form-field>
-          <input [type]="show ? 'text': 'password'" matInput placeholder="Password" formControlName="password" class="form-control">
-          <i style="float:right" (click)="password()" [class]="show ? 'fa fa-eye-slash': 'fa fa-eye'" aria-hidden="true"></i>
-        </mat-form-field>
-        <div><span *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched">
-            Password must be grater than 6 characters.</span></div> 
-        <br>
-        <button type="submit" [disabled]="signupForm.status=='INVALID'" mat-raised-button color="warn">Register</button> 
-      </form>
-        <button type="submit" [disabled]="signupForm.controls.value === null" (click)="resetForm()" mat-raised-button color="warn">Reset</button> 
-
+<div class="container">
+    <div style="margin-top: 45px;font-size: 15px;font-weight: 600;">
+        <p style="margin: 0 0 10px;text-align: center;font-size: 25px;color:#cf1f3d;">
+          “There is no great joy than saving a soul.”
+        </p>
     </div>
+    <div class="row" style="margin-top:30px;">
+      <div align="center" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <span class="heading">Sign Up As Doner</span>
+        <form [formGroup]="signupForm"(ngSubmit)="onSubmit()" class="signupForm">
+            <mat-form-field>
+              <input 
+                matInput 
+                placeholder="Full Name" 
+                formControlName="fullName"
+                class="form-control"
+                #reset>
+            </mat-form-field>
+            <div><span *ngIf="!signupForm.get('fullName').valid && signupForm.get('fullName').touched">
+            Please enter full name.</span></div> 
+            
+    
+            <mat-form-field>
+              <input 
+                  matInput 
+                  placeholder="Email" 
+                  formControlName="email"
+                  class="form-control">
+            </mat-form-field>
+            <div><span *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">
+                Please enter valid email.</span></div> 
+    
+            <mat-form-field>
+              <input 
+                 type="number"
+                 matInput 
+                 placeholder="Contact/ Mobile" 
+                 formControlName="contact"
+                 class="form-control">
+            </mat-form-field>
+            <div><span *ngIf="!signupForm.get('contact').valid && signupForm.get('contact').touched">
+                Please enter contact number.</span></div> 
+    
+            <!-- select Input city -->
+            <mat-form-field>
+              <mat-select placeholder="Select City" formControlName="city">
+                <mat-option *ngFor="let city of cities" [value]="city.value" class="form-control">
+                  {{ city.value }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div><span *ngIf="!signupForm.get('city').valid && signupForm.get('city').touched">
+                Please select city.</span></div>  
+    
+            <!-- select Input BloodGroups -->
+             <mat-form-field>
+              <mat-select placeholder="Blood Group" formControlName="bloodGroup">
+                <mat-option *ngFor="let group of bloodGroups" [value]="group.value" class="form-control">
+                  {{ group.value }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div><span *ngIf="!signupForm.get('bloodGroup').valid && signupForm.get('bloodGroup').touched">
+                Please select blood group.</span></div> 
+    
+            <mat-form-field>
+              <input [type]="show ? 'text': 'password'" matInput placeholder="Password" formControlName="password" class="form-control">
+              <i style="float:right" (click)="password()" [class]="show ? 'fa fa-eye-slash': 'fa fa-eye'" aria-hidden="true"></i>
+            </mat-form-field>
+            <div><span *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched">
+                Password must be grater than 6 characters.</span></div> 
+            <br>
+            <button type="submit" [disabled]="signupForm.status=='INVALID'" mat-raised-button color="warn">Register</button> 
+            <button type="submit" [disabled]="signupForm.controls.value === null" (click)="resetForm()" mat-raised-button color="warn">Reset</button> 
+          </form>
+    
+      </div>
 
+  
+  
+      <!-- <div align="center" class="col-lg-6 col-md-6 col-sm-12 col-xs-10">
+      </div>
+   -->
+  
+    </div>
   </div>
-
-</div>
-
-
-
-
-<mat-grid-list cols="3" rowHeight="650px">
-  <mat-grid-tile></mat-grid-tile>
-  <mat-grid-tile>
-
-  </mat-grid-tile>
-  <mat-grid-tile></mat-grid-tile>
-</mat-grid-list>

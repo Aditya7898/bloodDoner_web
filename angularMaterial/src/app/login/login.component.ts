@@ -10,9 +10,12 @@ import { UserDataService } from '../user-data.service';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm = {};
+  loginForm: FormGroup;
   email: string;
   password: string;
+  error: any;
+  errorMsg: any;
+  success: any;
 
 
   constructor(private dataService: UserDataService) {
@@ -20,17 +23,38 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = new FormGroup({
-      'email': new FormControl(null, [Validators.required]),
+      'email': new FormControl(null, [Validators.required, Validators.email]),
       'password': new FormControl(null, Validators.required)
+    });
+    this.loginForm.controls.email.valueChanges.subscribe((res) => {
+      if (res) {
+        this.error = false;
+        this.errorMsg = '';
+      }
+      console.log(res);
     });
   }
 
   onSubmit() {
-      this.dataService.login(this.email, this.password);
+      this.dataService.login(this.loginForm.controls.email.value, this.loginForm.controls.password.value);
+      console.log(typeof(this.loginForm.controls.email.value));
   }
 
   resetEmail() {
-    this.dataService.resetPassword(this.email);
+    try {
+      this.dataService.resetPassword(this.loginForm.controls.email.value)
+         .then(res => {
+           this.success = true;
+           console.log(res);
+          })
+         .catch(error => {
+           console.log(error);
+           this.errorMsg = 'This email is not registered with us.';
+        });
+    } catch (error) {
+         this.error = true;
+        console.error();
+    }
   }
 
 }

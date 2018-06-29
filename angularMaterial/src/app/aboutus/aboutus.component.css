@@ -2,5 +2,26 @@
     background: rgb(6, 67, 107);
 } */
 .container{
+    position: relative;
     padding: 30px;
+    /* background: url(https://images.pexels.com/photos/317356/pexels-photo-317356.jpeg?auto=compress&cs=tinysrgb&h=350); */
+}
+.p{
+    margin: 0px;
+    line-height: 2.2em;
+    letter-spacing: 1.1px;
+    box-shadow: 0px 1px 4px 1px red;
+    padding: 15px;
+    background: #f6f6f6f0
+}
+.mat-raised-button.mat-warn{
+    background: #cf1f3d !important;
+}
+.heading{
+text-align: center;
+border: 1px solid red;
+background: #cf1f3d;
+color: #fff;
+font-size: 23px;
+padding: 10px;
 }
