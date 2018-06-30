@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
     { value: 'Indore' },
     { value: 'Jabalpur' }
   ];
-  panelOpenState = false;
+  panelOpenState: any;
   searchBlood: FormGroup;
   requestList: Observable<any[]>;
   searchList: Observable<any[]>;

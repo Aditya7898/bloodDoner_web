@@ -14,10 +14,10 @@ export class ContactComponent implements OnInit {
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: [''],
-      secondCtrl: [''],
-      thirdCtrl: [''],
-      fourthCtrl: ['']
+      fullName: [''],
+      Address: [''],
+      Phone: [''],
+      Message: ['']
     });
 
   }

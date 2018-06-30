@@ -58,12 +58,7 @@ password() {
     this.authService.signup(this.signupForm);
   }
 
-
-  resetForm() {
-    this.reset();
-  }
-
-  reset() {
+  public reset() {
     this.signupForm.reset();
   }
 

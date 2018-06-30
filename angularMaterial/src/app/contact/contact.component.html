@@ -19,10 +19,10 @@
                 <form [formGroup]="firstFormGroup" (ngSubmit)="onSubmit()" class="form-full-width">
                   <ng-template matStepLabel>Fill out your name</ng-template>
                   <mat-form-field class="input-full-width">
-                    <input matInput placeholder="Full Name" formControlName="firstCtrl">
+                    <input matInput class="form-control" placeholder="Full Name" formControlName="fullName">
                   </mat-form-field>
                   <div>
-                    <button mat-raised-button mat-button matStepperNext>Next</button>
+                    <button type="button" mat-raised-button mat-button matStepperNext>Next</button>
                   </div>
                 </form>
               </mat-step>
@@ -31,11 +31,11 @@
                 <form [formGroup]="firstFormGroup" class="form-full-width">
                   <ng-template matStepLabel>Fill out your Email</ng-template>
                   <mat-form-field class="input-full-width">
-                    <input matInput placeholder="Address" formControlName="secondCtrl">
+                    <input matInput class="form-control" placeholder="Address" formControlName="Address">
                   </mat-form-field>
                   <div>
-                    <button mat-raised-button mat-button matStepperPrevious>Back</button>
-                    <button mat-raised-button mat-button matStepperNext>Next</button>
+                    <button type="button" mat-raised-button mat-button matStepperPrevious>Back</button>
+                    <button type="button" mat-raised-button mat-button matStepperNext>Next</button>
                   </div>
                 </form>
               </mat-step>
@@ -44,11 +44,11 @@
                   <form [formGroup]="firstFormGroup" (ngSubmit)="onSubmit()" class="form-full-width">
                     <ng-template matStepLabel>Fill out your Phone</ng-template>
                     <mat-form-field class="input-full-width"> 
-                      <input matInput placeholder="Phone" formControlName="thirdCtrl" >
+                      <input matInput class="form-control" placeholder="Phone" formControlName="Phone" >
                     </mat-form-field>
                     <div>
-                      <button mat-raised-button mat-button matStepperPrevious>Back</button>
-                      <button mat-raised-button mat-button matStepperNext>Next</button>
+                      <button type="button" mat-raised-button mat-button matStepperPrevious>Back</button>
+                      <button type="button" mat-raised-button mat-button matStepperNext>Next</button>
                     </div>
                   </form>
                 </mat-step>
@@ -57,10 +57,10 @@
                     <form [formGroup]="firstFormGroup" (ngSubmit)="onSubmit()" class="form-full-width">
                       <ng-template matStepLabel>Write your message</ng-template>
                       <mat-form-field class="input-full-width">
-                          <textarea matInput placeholder="Message" formControlName="fourthCtrl"></textarea>
+                          <textarea matInput class="form-control" placeholder="Message" formControlName="Message"></textarea>
                       </mat-form-field>
                       <div>
-                        <button mat-raised-button mat-button matStepperPrevious>Back</button>
+                        <button type="button" mat-raised-button mat-button matStepperPrevious>Back</button>
                         <button mat-raised-button type="submit" mat-button matStepperNext>Next</button>
                       </div>
                     </form>

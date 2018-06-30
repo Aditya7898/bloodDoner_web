@@ -1,0 +1,99 @@
+<div class="profile">
+  <span *ngIf="authService.user$ | async as user">
+    <span *ngIf="authService.LoggingUser$ | async as loggingUser;">
+      <div style="margin-top:40px;" class="row">
+        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+          <h4 class="heading">My Profile</h4>
+          <span>
+              <button mat-icon-button [matMenuTriggerFor]="menu">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item (click)="edit()">
+                    <mat-icon>dialpad</mat-icon>
+                    <span>Edit</span>
+                  </button>
+                  <button mat-menu-item (click)="delete()">
+                    <mat-icon>voicemail</mat-icon>
+                    <span>Remove Account from BloodFinder</span>
+                  </button>
+                </mat-menu>
+          </span>
+          
+          <div style="text-align:center; box-shadow:1px 1px 5px 1px red;" class="myProfile">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td id="left">Name</td>
+                  <td id="center">{{loggingUser[0].Name }}</td>
+                </tr>
+                <tr>
+                  <td id="left">BloodGroup</td>
+                  <td id="center">{{loggingUser[0].BloodGroup }}</td>
+                </tr>
+                <tr>
+                  <td id="left">City</td>
+                  <td id="center">{{loggingUser[0].City }}</td>
+                </tr>
+                <tr>
+                  <td id="left">Email</td>
+                  <td id="center">{{loggingUser[0].Email }}</td>
+                </tr>
+                <tr>
+                  <td id="left">Phone</td>
+                  <td id="center">{{loggingUser[0].Phone }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div *ngIf="editProfile" align="center" class="formDiv">
+            <!-- Form Start -->
+            <form  [formGroup]="editForm" (ngSubmit)="onSubmit()" class="form-full-width">
+                <mat-form-field  class="input-full-width">
+                  <input matInput placeholder="Full Name" formControlName="fullName" class="form-control">
+                </mat-form-field><br>
+  
+                <mat-form-field class="input-full-width">
+                  <input readonly matInput placeholder="Email" formControlName="email" class="form-control">
+                </mat-form-field><br>
+  
+                <mat-form-field class="input-full-width">
+                  <input type="number" matInput placeholder="Contact/ Mobile" formControlName="contact" class="form-control">
+                </mat-form-field><br>
+  
+  
+                <!-- select Input city -->
+                <mat-form-field class="input-full-width">
+                  <mat-select placeholder="Select City" formControlName="city">
+                    <mat-option *ngFor="let city of cities" [value]="city.value" class="form-control">
+                      {{ city.value }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field><br>
+  
+  
+                <!-- select Input BloodGroups -->
+                <mat-form-field class="input-full-width">
+                  <mat-select placeholder="Blood Group" formControlName="bloodGroup">
+                    <mat-option *ngFor="let group of bloodGroups" [value]="group.value" class="form-control">
+                      {{ group.value }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+  
+                <br>
+                <div style="display:flex;" class="buttons">
+                    <button type="submit" [disabled]="editForm.status=='INVALID'" mat-raised-button color="warn">Update</button>
+                </div>
+              </form>
+          </div>
+
+        </div>
+        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+      </div>
+    </span>
+  </span>
+</div>
+

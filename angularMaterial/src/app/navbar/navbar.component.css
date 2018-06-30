@@ -123,3 +123,11 @@ ul{
 .example-sidenav {
   padding: 20px;
 }
+
+/* glyphicon  */
+.glyphicon {
+  padding: 10px !important;
+  padding-left: 0px !important;
+  top: 0px !important;
+  color:#c9223f;
+}

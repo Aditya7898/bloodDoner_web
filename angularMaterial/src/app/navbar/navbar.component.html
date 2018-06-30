@@ -5,18 +5,45 @@
                 [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
                 <mat-toolbar color="primary">Menu</mat-toolbar>
                 <mat-nav-list>
-                  <a mat-list-item (click)="drawer.toggle()" routerLink="/home">Home</a>
-                  <a mat-list-item (click)="drawer.toggle()" routerLink="/requestBlood">Request Blood</a>
-                  <a mat-list-item (click)="drawer.toggle()" routerLink="/requests">See All Requests</a>
-                  <a mat-list-item (click)="drawer.toggle()"routerLink="/aboutus">About Us</a>
-                  <a mat-list-item (click)="drawer.toggle()" routerLink="/contact">Contact Us</a>
+                  <a mat-list-item (click)="drawer.toggle()" routerLink="/home">
+                    <span class="glyphicon glyphicon-home"></span>
+                    Home
+                  </a>
+                  <a mat-list-item (click)="drawer.toggle()" routerLink="/requestBlood">
+                    <span class="glyphicon glyphicon-send"></span>
+                    Request Blood
+                  </a>
+                  <a mat-list-item (click)="drawer.toggle()" routerLink="/requests">
+                    <span class="glyphicon glyphicon-list"></span>
+                    See All Requests
+                  </a>
+                  <a mat-list-item (click)="drawer.toggle()" routerLink="/aboutus">
+                    <span class="glyphicon glyphicon-book"></span>
+                    About Us
+                  </a>
+                  <a mat-list-item (click)="drawer.toggle()" routerLink="/contact">
+                    <span class="glyphicon glyphicon-envelope"></span>
+                    Contact Us
+                  </a>
                   <ng-template #loginMobile>
-                    <a mat-list-item (click)="drawer.toggle()" routerLink="/signup" type="submit">Sign Up</a>
-                    <a mat-list-item (click)="drawer.toggle()" routerLink="/login">Login</a>
+                    <a mat-list-item (click)="drawer.toggle()" routerLink="/signup" type="submit">
+                      <span class="glyphicon glyphicon-floppy-disk"></span>
+                      Sign Up
+                    </a>
+                    <a mat-list-item (click)="drawer.toggle()" routerLink="/login">
+                      <span class="glyphicon glyphicon-log-in"></span>
+                      Login
+                    </a>
                 </ng-template>
                   <span *ngIf="authService.user$ | async as user; else loginMobile">
-                    <a mat-list-item *ngIf="authService.LoggingUser$ | async as loggingUser; else loginMobile"> {{loggingUser[0].Name }}</a>
-                    <a mat-list-item (click)="logout();drawer.toggle()">Logout</a>
+                    <a mat-list-item routerLink="/profile" (click)="drawer.toggle()" *ngIf="authService.LoggingUser$ | async as loggingUser; else loginMobile"> 
+                      <span class="glyphicon glyphicon-user"></span>
+                      {{loggingUser[0].Name }}
+                    </a>
+                    <a mat-list-item (click)="logout();drawer.toggle()">
+                        <span class="glyphicon glyphicon-log-out"></span>
+                        Logout
+                    </a>
                   </span>
                 </mat-nav-list>
               </mat-sidenav>
@@ -38,7 +65,7 @@
                       <a mat-button routerLink="/login">Login</a>
                   </ng-template>
                     <span *ngIf="authService.user$ | async as user; else login">
-                      <a mat-button *ngIf="authService.LoggingUser$ | async as loggingUser; else login"> {{loggingUser[0].Name }}</a>
+                      <a mat-button routerLink="/profile" *ngIf="authService.LoggingUser$ | async as loggingUser; else login"> {{loggingUser[0].Name }}</a>
                       <a mat-button (click)="logout()">Logout</a>
                     </span>
                   </div>

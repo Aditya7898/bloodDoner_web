@@ -49,6 +49,10 @@ input.mat-input-element{
       width: 100%;
   }
 
+  .mat-fab.mat-primary, .mat-flat-button.mat-primary, .mat-mini-fab.mat-primary, .mat-raised-button.mat-primary {
+    background-color: #cf1f3d;
+}
+
 @media(max-width:768px){
     .container{
             background-size: cover;

@@ -1,0 +1,62 @@
+ul{
+    border: 1px solid red;
+    box-shadow: 1px 1px 1px 1px red;
+    padding:35px;
+}
+li{
+    list-style-type: none;
+}
+.heading{
+    font-size: 17px;
+    color: #fff;
+    background: #cf1f3d;
+    box-shadow: 0px 1px 4px 1px red;
+    padding: 10px;
+}
+.myProfile{
+    padding: 30px;
+}
+.form-control{
+    color:#000 !important;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    border: none !important;
+    font-weight: 600 !important;
+}
+.buttons{
+
+}
+
+.example-h2 {
+    margin: 10px;
+  }
+  
+  .example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .example-margin {
+    margin: 10px;
+  }
+
+  .form-full-width {
+    min-width: 200px;
+    max-width: 500px;
+    width:100%;
+
+}
+
+.input-full-width {
+    width: 100%;
+}
+
+.formDiv{
+  box-shadow: 1px 1px 1px 1px red;
+  padding: 50px;
+}
+.mat-form-field-infix{
+ font-size: 17px !important;
+}

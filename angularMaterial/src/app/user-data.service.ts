@@ -15,6 +15,7 @@ export class UserDataService {
   user: any = null;
   user$: Observable<firebase.User>;
   data: any;
+  editData: any;
 
 
 
@@ -67,7 +68,7 @@ export class UserDataService {
 
   login(email: string, password: string) {
     try {
-      this.afAuth.auth.signInWithEmailAndPassword(email, password)
+    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
         .then(response => {
           console.log(response);
           this.router.navigate(['/home']);
@@ -122,5 +123,22 @@ export class UserDataService {
     return this.afAuth.auth.sendPasswordResetEmail(email);
       // .then(response => { return response; console.log(response); })
       // .catch(error => { console.log(error); return (error); });
+  }
+
+  editProfile(newData: FormGroup) {
+    this.user$.subscribe(user => {
+      if (user) {
+        this.save(user, newData);
+      }
+    });
+  }
+
+  deleteAccount() {
+    this.user$.subscribe(user => {
+      this.db.object('/users/' + user.uid).remove();
+    });
+    firebase.auth().currentUser.delete();
+    this.router.navigate(['/home']);
+
   }
 }

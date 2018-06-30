@@ -37,6 +37,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserDataService } from './user-data.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MatDatepickerModule} from '@angular/material/datepicker';
+import { MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { NativeDateAdapter} from '@angular/material';
 import { MatNativeDateModule} from '@angular/material';
 import { MatTooltipModule} from '@angular/material/tooltip';
@@ -45,6 +46,7 @@ import { MatStepperModule} from '@angular/material/stepper';
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
 import { AllRequestsComponent } from './all-requests/all-requests.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,8 @@ import { AllRequestsComponent } from './all-requests/all-requests.component';
     NavbarComponent,
     ContactComponent,
     FooterComponent,
-    AllRequestsComponent
+    AllRequestsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,7 @@ import { AllRequestsComponent } from './all-requests/all-requests.component';
     MatFormFieldModule, MatInputModule, MatSelectModule, MatTabsModule,
     FlexLayoutModule, MatCheckboxModule, MatCardModule, MatDatepickerModule,
     MatNativeDateModule, MatTooltipModule, MatExpansionModule, MatDividerModule,
-    MatStepperModule,
+    MatStepperModule, MatSlideToggleModule,
    // firebase configuration
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule, AngularFireAuthModule,
@@ -85,7 +88,8 @@ import { AllRequestsComponent } from './all-requests/all-requests.component';
       { path: 'login', component: LoginComponent },
       { path: 'aboutus', component: AboutusComponent },
       { path: 'contact', component: ContactComponent },
-      { path: 'requests', component: AllRequestsComponent }
+      { path: 'requests', component: AllRequestsComponent },
+      { path: 'profile', component: ProfileComponent }
     ])
   ],
   providers: [UserDataService],

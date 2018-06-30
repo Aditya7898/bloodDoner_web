@@ -107,6 +107,9 @@ button.mat-warn {
 .fa-eye{
     color:#ca0628;
 }
+.mat-error {
+    float: left;
+}
 @media(max-width:768px){
     .mat-form-field{
         width:100% !important;

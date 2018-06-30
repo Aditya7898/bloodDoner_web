@@ -36,7 +36,15 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-      this.dataService.login(this.loginForm.controls.email.value, this.loginForm.controls.password.value);
+      this.dataService.login(this.loginForm.controls.email.value, this.loginForm.controls.password.value)
+      .then(res => {
+        this.success = true;
+        console.log(res);
+       })
+      .catch(error => {
+        console.log(error);
+        this.errorMsg = 'This email is not registered with us.';
+     });
       console.log(typeof(this.loginForm.controls.email.value));
   }
 
